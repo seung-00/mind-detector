@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import TitleBox from '../common/TitleBox';
 import CustomButton from '../common/CustomButton';
 import PrivacyBox from './PrivacyBox';
+import { initializeForm, savePrivacy } from '../../modules/test';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../modules';
 
 const TopWrapper = styled.div`
   position: absolute;
@@ -65,7 +69,33 @@ const MainButton = styled(CustomButton)`
 `;
 
 function TopBlock() {
+  const history = useHistory();
   const [startToggle, setStartToggle] = useState(false);
+  const dispatch = useDispatch();
+  const stored_age = useSelector((state: RootState) => state.test.privacy.age);
+  const [privacy, setPrivacy] = useState({
+    age: 0,
+    sex: '',
+    regidences: '',
+  });
+
+  const handleForm = (
+    e:
+      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    setPrivacy({
+      ...privacy,
+      [key]: value,
+    });
+  };
+
+  useEffect(() => {
+    dispatch(initializeForm());
+  }, [dispatch]);
+
   return (
     <TopWrapper>
       <TitleArea>
@@ -74,10 +104,14 @@ function TopBlock() {
       <ContentWrapper>
         {startToggle ? (
           <>
-            <PrivacyBox />
+            <PrivacyBox handleForm={handleForm} />
             <MainButton
               onClick={() => {
-                setStartToggle(false);
+                dispatch(savePrivacy(privacy));
+                if (stored_age) {
+                  // 리듀서에서 예외처리가 되었는지 여부를 체크합니다.
+                  history.push('/test');
+                }
               }}
             >
               다음
