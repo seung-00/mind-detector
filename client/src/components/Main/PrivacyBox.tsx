@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const PrivacyArea = styled.div`
@@ -26,7 +26,7 @@ const PrivacyItem = styled.div`
   }
 `;
 
-const InputArea = styled.div`
+const InputArea = styled.form`
   display: flex;
   flex: 1;
   label {
@@ -61,33 +61,60 @@ const InputArea = styled.div`
   }
 `;
 
-function PrivacyBox() {
+interface PrivacyProps {
+  handleForm: (
+    e:
+      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLInputElement>
+  ) => void;
+}
+
+function PrivacyBox({ handleForm }: PrivacyProps) {
   return (
     <PrivacyArea>
       <div className="content-area">
         <PrivacyItem>
           <label>나이</label>
           <InputArea>
-            <input id="age" name="age" type="number" max={100} min={0} />
+            <input
+              id="age"
+              name="age"
+              type="number"
+              max={100}
+              min={0}
+              onChange={handleForm}
+            />
           </InputArea>
         </PrivacyItem>
         <PrivacyItem>
           <label>성별</label>
           <InputArea>
-            <input type="radio" name="sex" value="male" id="male" />
+            <input
+              type="radio"
+              name="sex"
+              value="male"
+              id="male"
+              onChange={handleForm}
+            />
             <label htmlFor="male">남자</label>
-            <input type="radio" name="sex" value="female" id="female" />
+            <input
+              type="radio"
+              name="sex"
+              value="female"
+              id="female"
+              onChange={handleForm}
+            />
             <label htmlFor="female">여자</label>
           </InputArea>
         </PrivacyItem>
         <PrivacyItem>
           <label>거주지</label>
           <InputArea className="input-area">
-            <select name="regidences">
+            <select name="regidences" onChange={handleForm}>
+              <option value="선택">선택</option>
               <option value="서울">서울</option>
               <option value="대전">대전</option>
               <option value="대구">대구</option>
-              <option value="등등">등등</option>
             </select>
           </InputArea>
         </PrivacyItem>
