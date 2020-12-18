@@ -80,6 +80,7 @@ interface TestProp {
   handleText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handlePrevious: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   handleNext: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleTest: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 function TestBlock({
@@ -90,6 +91,7 @@ function TestBlock({
   handleNext,
   handlePrevious,
   handleText,
+  handleTest,
 }: TestProp) {
   useEffect(() => {
     initializePage();
@@ -108,7 +110,7 @@ function TestBlock({
             <ButtonArea>
               <CustomButton onClick={handlePrevious}>이전</CustomButton>
               {page == 10 ? (
-                <CustomButton onClick={handleNext}>결과보기</CustomButton>
+                <CustomButton onClick={handleTest}>결과보기</CustomButton>
               ) : (
                 <CustomButton onClick={handleNext}>다음</CustomButton>
               )}
