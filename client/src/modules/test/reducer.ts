@@ -2,7 +2,7 @@ import * as actions from './actions';
 import * as types from './types';
 
 // 초기 상태 선언
-const initialForm: types.DataForm = {
+const initialForm: types.TestForm = {
   privacy: {
     age: '',
     sex: '',
@@ -26,9 +26,9 @@ const initialForm: types.DataForm = {
 
 // 리듀서 작성
 function study(
-  state: types.DataForm = initialForm,
+  state: types.TestForm = initialForm,
   action: types.FormAction
-): types.DataForm {
+): types.TestForm {
   switch (action.type) {
     case actions.SAVE_PRIVACY:
       return {

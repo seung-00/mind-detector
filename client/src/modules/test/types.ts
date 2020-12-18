@@ -13,7 +13,7 @@ export interface AnswerForm {
   answer: string;
 }
 
-export interface DataForm {
+export interface TestForm {
   privacy: {
     age: string;
     sex: string;
