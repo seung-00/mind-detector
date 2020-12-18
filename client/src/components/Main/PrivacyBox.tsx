@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import * as selectionConstant from '../../constants/selection';
 
 const PrivacyArea = styled.div`
-  width: 440px;
+  width: 562px;
   height: 255px;
   display: flex;
   flex-direction: column;
@@ -17,9 +18,10 @@ const PrivacyArea = styled.div`
 const PrivacyItem = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 20% 0 20%;
+  margin: 0 15% 0 15%;
   > label {
-    flex: 0 0 100px;
+    font-size: 16px;
+    width: 80px;
   }
   & + & {
     margin-top: 20px;
@@ -32,14 +34,13 @@ const InputArea = styled.form`
   label {
     cursor: pointer;
   }
-  input[type='number'],
   select {
     font-family: inherit;
     width: 80%;
     padding: 8px;
     font-size: 15px;
     background: #ffffff;
-    border: 1px solid #cacaca;
+    border: 1px solid ${(props) => props.theme.gray};
     box-sizing: border-box;
   }
   input[type='radio']:checked {
@@ -61,6 +62,11 @@ const InputArea = styled.form`
   }
 `;
 
+type provinceType = selectionConstant.provinceType;
+const ages = selectionConstant.ages;
+const jobs = selectionConstant.jobs;
+const provinces = selectionConstant.provinces;
+
 interface PrivacyProps {
   handleForm: (
     e:
@@ -70,20 +76,42 @@ interface PrivacyProps {
 }
 
 function PrivacyBox({ handleForm }: PrivacyProps) {
+  const [selectedProvince, setSelectedProvince] = useState<keyof provinceType>(
+    '서울특별시'
+  );
+  const ageList = ages.map((age, index) => {
+    return <option value={age}>{age}</option>;
+  });
+  const jobList = jobs.map((job, index) => {
+    return <option value={job}>{job}</option>;
+  });
+  const provinceList = Object.keys(provinces).map((province, index) => {
+    return <option value={province}>{province}</option>;
+  });
+  const cityList = provinces[selectedProvince].map((city, index) => {
+    return <option value={city}>{city}</option>;
+  });
+
+  const handleProvince = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const province: any = e.target.value;
+    if (province === '선택') {
+      alert('시/구 를 선택해주세요.');
+    } else {
+      setSelectedProvince(province);
+      handleForm(e);
+    }
+  };
+
   return (
     <PrivacyArea>
       <div className="content-area">
         <PrivacyItem>
           <label>나이</label>
-          <InputArea>
-            <input
-              id="age"
-              name="age"
-              type="number"
-              max={100}
-              min={0}
-              onChange={handleForm}
-            />
+          <InputArea className="input-area">
+            <select name="age" onChange={handleForm}>
+              <option value="선택">선택</option>
+              {ageList}
+            </select>
           </InputArea>
         </PrivacyItem>
         <PrivacyItem>
@@ -108,13 +136,26 @@ function PrivacyBox({ handleForm }: PrivacyProps) {
           </InputArea>
         </PrivacyItem>
         <PrivacyItem>
-          <label>거주지</label>
+          <label>직업</label>
           <InputArea className="input-area">
-            <select name="regidences" onChange={handleForm}>
+            <select name="job" onChange={handleForm}>
               <option value="선택">선택</option>
-              <option value="서울">서울</option>
-              <option value="대전">대전</option>
-              <option value="대구">대구</option>
+              {jobList}
+            </select>
+          </InputArea>
+        </PrivacyItem>
+        <PrivacyItem>
+          <label>주거지</label>
+          <InputArea className="input-area">
+            <select name="province" onChange={handleProvince}>
+              <option value="선택">선택</option>
+              {provinceList}
+            </select>
+          </InputArea>
+          <InputArea className="input-area">
+            <select name="city" onChange={handleForm}>
+              <option value="선택">선택</option>
+              {cityList}
             </select>
           </InputArea>
         </PrivacyItem>
