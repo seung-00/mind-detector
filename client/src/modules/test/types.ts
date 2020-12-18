@@ -2,40 +2,36 @@ import * as actions from './actions';
 
 // form 객체 타입 준비
 export interface PrivacyForm {
-  age: number;
+  age: string;
   sex: string;
-  regidences: string;
+  job: string;
+  province: string;
+  city: string;
 }
-export interface TextForm {
-  text1: string;
-  text2: string;
-  text3: string;
-  text4: string;
-  text5: string;
-  text6: string;
-  text7: string;
-  text8: string;
-  text9: string;
-  text10: string;
+export interface AnswerForm {
+  pageKey: string;
+  answer: string;
 }
 
-export interface TestForm {
+export interface DataForm {
   privacy: {
-    age: number;
+    age: string;
     sex: string;
-    regidences: string;
+    job: string;
+    province: string;
+    city: string;
   };
-  texts: {
-    text1: string;
-    text2: string;
-    text3: string;
-    text4: string;
-    text5: string;
-    text6: string;
-    text7: string;
-    text8: string;
-    text9: string;
-    text10: string;
+  answers: {
+    answer1: string;
+    answer2: string;
+    answer3: string;
+    answer4: string;
+    answer5: string;
+    answer6: string;
+    answer7: string;
+    answer8: string;
+    answer9: string;
+    answer10: string;
   };
 }
 
@@ -43,4 +39,4 @@ export interface TestForm {
 export type FormAction =
   | ReturnType<typeof actions.initializeForm>
   | ReturnType<typeof actions.savePrivacy>
-  | ReturnType<typeof actions.saveText>;
+  | ReturnType<typeof actions.saveAnswer>;
