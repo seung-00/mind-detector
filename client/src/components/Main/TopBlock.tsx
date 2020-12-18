@@ -62,6 +62,7 @@ const RightContent = styled.div`
 `;
 
 const MainButton = styled(CustomButton)`
+  width: 105px;
   margin-top: 22px;
   p + & {
     margin-top: 50px;
@@ -72,11 +73,12 @@ function TopBlock() {
   const history = useHistory();
   const [startToggle, setStartToggle] = useState(false);
   const dispatch = useDispatch();
-  const stored_age = useSelector((state: RootState) => state.test.privacy.age);
   const [privacy, setPrivacy] = useState({
-    age: 0,
-    sex: '',
-    regidences: '',
+    age: '선택',
+    sex: '선택',
+    job: '선택',
+    province: '선택',
+    city: '선택',
   });
 
   const handleForm = (
@@ -107,9 +109,11 @@ function TopBlock() {
             <PrivacyBox handleForm={handleForm} />
             <MainButton
               onClick={() => {
-                dispatch(savePrivacy(privacy));
-                if (stored_age) {
-                  // 리듀서에서 예외처리가 되었는지 여부를 체크합니다.
+                // console.log(Object.values(privacy));
+                if (Object.values(privacy).includes('선택')) {
+                  alert('분석을 위해 개인정보 기입을 부탁드립니다.');
+                } else {
+                  dispatch(savePrivacy(privacy));
                   history.push('/test');
                 }
               }}

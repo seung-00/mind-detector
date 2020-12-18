@@ -2,9 +2,9 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
+  width: autod;
   background: transparent;
-  width: 105px;
-  height: 37.06px;
+  padding: 10px 19px;
   text-align: center;
   font-style: normal;
   font-weight: bold;
