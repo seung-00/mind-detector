@@ -5,9 +5,8 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 
 function* postTestFuncSaga(action: ReturnType<typeof actions.postTest>) {
   try {
-    const test = yield call(postTestApi, action.payload);
-    console.log(test);
-    // yield call([history, history.push], '/signin');
+    yield call(postTestApi, action.payload);
+    // return data;
     yield put(actions.postTestSuccess());
   } catch (e) {
     yield put(actions.postTestError(e));

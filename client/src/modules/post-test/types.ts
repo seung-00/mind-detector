@@ -10,6 +10,7 @@ export type PostTestAction =
 export interface PostTestState {
   postStatus: {
     loading: boolean;
+    success: boolean;
     error: Error | null;
   };
 }

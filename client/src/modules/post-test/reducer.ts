@@ -4,35 +4,35 @@ import * as types from './types';
 const initialState: types.PostTestState = {
   postStatus: {
     loading: false,
+    success: false,
     error: null,
   },
 };
 
-const createStudy = (
+const postTest = (
   state: types.PostTestState = initialState,
   action: types.PostTestAction
 ) => {
   switch (action.type) {
     case actions.POST_TEST:
       return {
-        ...state,
         postStatus: {
+          ...state.postStatus,
           loading: true,
-          error: null,
         },
       };
     case actions.POST_TEST_SUCCESS:
       return {
-        ...state,
         postStatus: {
+          ...state.postStatus,
           loading: false,
-          error: null,
+          success: true,
         },
       };
     case actions.POST_TEST_ERROR:
       return {
-        ...state,
         postStatus: {
+          ...state.postStatus,
           loading: false,
           error: action.error,
         },
@@ -42,4 +42,4 @@ const createStudy = (
   }
 };
 
-export default createStudy;
+export default postTest;

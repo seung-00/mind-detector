@@ -79,10 +79,10 @@ function PrivacyBox({ handleForm }: PrivacyProps) {
   const [selectedProvince, setSelectedProvince] = useState<keyof provinceType>(
     '서울특별시'
   );
-  const ageList = ages.map((age, index) => {
+  const ageList = ages.map((age: string, index) => {
     return <option value={age}>{age}</option>;
   });
-  const jobList = jobs.map((job, index) => {
+  const jobList = jobs.map((job: string, index) => {
     return <option value={job}>{job}</option>;
   });
   const provinceList = Object.keys(provinces).map((province, index) => {
