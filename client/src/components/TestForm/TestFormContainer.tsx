@@ -8,10 +8,10 @@ import { postTest, PostTestState } from '../../modules/post-test';
 import { useHistory } from 'react-router-dom';
 
 function TestFormContainer() {
+  // const { loading, success, error }: PostTestState['postStatus'] = useSelector(
+  //   (state: RootState) => state.postTest.postStatus
+  // );
   const testForm = useSelector((state: RootState) => state.test);
-  const { loading, success, error }: PostTestState['postStatus'] = useSelector(
-    (state: RootState) => state.postTest.postStatus
-  );
   const history = useHistory();
 
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ function TestFormContainer() {
   const regExp = /[\{\}\[\]\/?;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
 
   const initializePage = () => {
-    console.log();
     setAnswer('');
   };
 
@@ -52,17 +51,25 @@ function TestFormContainer() {
     } else {
       const pageKey = 'answer' + String(page);
       const testData = { pageKey: pageKey, answer: answer };
+      console.log(testData);
       dispatch(saveAnswer(testData));
       setPage(page + 1);
     }
   };
 
   const handleTest = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const data = dispatch(postTest(testForm));
-    if (success) {
-      alert(data);
+    if (answer.length < 5) {
+      alert('답변을 5자 이상으로 작성해주세요.');
+    } else {
+      const pageKey = 'answer' + String(page);
+      const testData = { pageKey: pageKey, answer: answer };
+      dispatch(saveAnswer(testData));
+      history.push('./test'); // Rerendering
+      const data = dispatch(postTest(testForm));
+      // if (success) {
       console.log(data);
-      // history.push('./result');
+      history.push('./result');
+      // }
     }
   };
 

@@ -62,6 +62,7 @@ const Fence = styled.span`
 
 function HospitalBox({ hospitalMock }: any) {
   const hospitalInfos = hospitalMock.map((hospitalObj: any, index: any) => {
+    console.log(hospitalObj);
     return (
       <>
         <HospitalInfo>

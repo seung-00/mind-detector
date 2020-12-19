@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { RootState } from '../../modules';
 import CustomButton from '../common/CustomButton';
 
 import Gage from './Gage';
@@ -118,34 +120,10 @@ const bodies = [
 ];
 
 function ResultForm() {
+  const fetchedData = useSelector((state: RootState) => state.postTest);
+  console.log(fetchedData);
   const blueDegree = 7;
   const halfBlueDegree = Math.round(7 / 2);
-  const hospitalMock = {
-    result: 'success',
-    data: [
-      {
-        centerid: 1,
-        province: '경기도',
-        name: '우리집',
-        phonecall: '0000',
-        address: '경기도 용인시',
-      },
-      {
-        centerid: 2,
-        province: '경기도',
-        name: '경희대',
-        phonecall: '1234',
-        address: '경기도 용인시',
-      },
-      {
-        centerid: 3,
-        province: '서울시',
-        name: '남산타워',
-        phonecall: '5000',
-        address: '서울시 어딘가',
-      },
-    ],
-  };
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
     <FormWrapper>
@@ -165,7 +143,7 @@ function ResultForm() {
           )}
           {hospitalToggle && (
             <>
-              <HospitalBox hospitalMock={hospitalMock.data} />
+              <HospitalBox hospitalMock={fetchedData} />
             </>
           )}
           <Border />
@@ -176,7 +154,7 @@ function ResultForm() {
                 <br />
                 평균 우울지수는
                 <br />
-                <em>매우 높음</em> 입니다.
+                <em>높음</em> 입니다.
               </BlueBox>
               <BlueBox>
                 오늘,
