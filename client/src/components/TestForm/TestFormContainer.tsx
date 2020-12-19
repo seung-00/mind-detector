@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveAnswer } from '../../modules/test';
-import TestForm from './TestForm';
+import TestFormPresentation from './TestFormPresentation';
+import { saveAnswer } from '../../modules/test/actions';
 import { questions } from '../../constants/questions';
 import { RootState } from '../../modules';
-import { postTest } from '../../modules/post-test';
+import { postTest, PostTestState } from '../../modules/post-test';
+import { useHistory } from 'react-router-dom';
 
 function TestFormContainer() {
+  // const { loading, success, error }: PostTestState['postStatus'] = useSelector(
+  //   (state: RootState) => state.postTest.postStatus
+  // );
   const testForm = useSelector((state: RootState) => state.test);
+  const history = useHistory();
+
   const dispatch = useDispatch();
+
   const [page, setPage] = useState(1);
   const [answer, setAnswer] = useState('');
   const regExp = /[\{\}\[\]\/?;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
@@ -44,17 +51,30 @@ function TestFormContainer() {
     } else {
       const pageKey = 'answer' + String(page);
       const testData = { pageKey: pageKey, answer: answer };
+      console.log(testData);
       dispatch(saveAnswer(testData));
       setPage(page + 1);
     }
   };
 
   const handleTest = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    dispatch(postTest(testForm));
+    if (answer.length < 5) {
+      alert('답변을 5자 이상으로 작성해주세요.');
+    } else {
+      const pageKey = 'answer' + String(page);
+      const testData = { pageKey: pageKey, answer: answer };
+      dispatch(saveAnswer(testData));
+      history.push('./test'); // Rerendering
+      const data = dispatch(postTest(testForm));
+      // if (success) {
+      console.log(data);
+      history.push('./result');
+      // }
+    }
   };
 
   return (
-    <TestForm
+    <TestFormPresentation
       page={page}
       question={questions[page - 1]}
       answer={answer}
