@@ -15,20 +15,20 @@ const GageWrapper = styled.div`
 `;
 
 interface GageProps {
-  blueDegree: number;
+  level: number;
 }
 
-function Gage({ blueDegree }: GageProps) {
+function Gage({ level }: GageProps) {
   return (
     <GageWrapper>
-      {blueDegree === 1 && <img src={Gage1} />}
-      {blueDegree === 2 && <img src={Gage2} />}
-      {blueDegree === 3 && <img src={Gage3} />}
-      {blueDegree === 4 && <img src={Gage4} />}
-      {blueDegree === 5 && <img src={Gage5} />}
-      {blueDegree === 6 && <img src={Gage6} />}
-      {blueDegree === 7 && <img src={Gage7} />}
-      {blueDegree === 8 && <img src={Gage8} />}
+      {level === 1 && <img src={Gage1} />}
+      {level === 2 && <img src={Gage2} />}
+      {level === 3 && <img src={Gage3} />}
+      {level === 4 && <img src={Gage4} />}
+      {level === 5 && <img src={Gage5} />}
+      {level === 6 && <img src={Gage6} />}
+      {level === 7 && <img src={Gage7} />}
+      {level === 8 && <img src={Gage8} />}
     </GageWrapper>
   );
 }

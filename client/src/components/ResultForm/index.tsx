@@ -20,7 +20,7 @@ const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1140px;
+  /* width: 1140px; */
   min-height: 1140px;
   background-color: white;
   border-radius: 31px;
@@ -120,19 +120,18 @@ const bodies = [
 ];
 
 function ResultForm() {
-  const fetchedData = useSelector((state: RootState) => state.postTest);
-  console.log(fetchedData);
-  const blueDegree = 7;
-  const halfBlueDegree = Math.round(7 / 2);
+  const level = useSelector((state: RootState) => state.postTest.level);
+  const halfLevl = Math.round(level / 2);
+  const centers = useSelector((state: RootState) => state.postTest.centers);
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
     <FormWrapper>
       <FormBox>
         <ContentWrapper>
-          <DiagnosisTitle>{titles[halfBlueDegree - 1]}</DiagnosisTitle>
-          <Gage blueDegree={blueDegree} />
-          <DiagnosisBody>{bodies[halfBlueDegree - 1]}</DiagnosisBody>
-          {blueDegree > 5 && (
+          <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
+          <Gage level={level} />
+          <DiagnosisBody>{bodies[halfLevl - 1]}</DiagnosisBody>
+          {level > 5 && (
             <CustomButton
               onClick={() => {
                 setHospitalToggle(!hospitalToggle);
@@ -143,7 +142,7 @@ function ResultForm() {
           )}
           {hospitalToggle && (
             <>
-              <HospitalBox hospitalMock={fetchedData} />
+              <HospitalBox hospitalMock={centers} />
             </>
           )}
           <Border />

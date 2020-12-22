@@ -73,7 +73,14 @@ function HospitalBox({ hospitalMock }: any) {
               <Fence /> <a>{hospitalObj.phonecall}</a>
             </span>
           </HospitalTextArea>
-          <VisitButton>방문하기</VisitButton>
+          <VisitButton
+            onClick={() => {
+              console.log(hospitalObj.address);
+              window.location.href = `https://map.naver.com/v5/search/${hospitalObj.address}`;
+            }}
+          >
+            방문하기
+          </VisitButton>
         </HospitalInfo>
         <Border />
       </>
