@@ -87,7 +87,12 @@ function TopBlock() {
       | React.ChangeEvent<HTMLInputElement>
   ) => {
     const key = e.target.name;
-    const value = e.target.value;
+    let value = '';
+    if (e.target.name === 'age') {
+      value = e.target.value.replace('대', '');
+    } else {
+      value = e.target.value;
+    }
     setPrivacy({
       ...privacy,
       [key]: value,

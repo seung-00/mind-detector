@@ -22,7 +22,7 @@ const ManualTitle = styled.p`
   font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: 900;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 21px;
   letter-spacing: -0.5px;
   /* color: gray; */

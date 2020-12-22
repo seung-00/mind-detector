@@ -8,9 +8,9 @@ import { postTest, PostTestState } from '../../modules/post-test';
 import { useHistory } from 'react-router-dom';
 
 function TestFormContainer() {
-  // const { loading, success, error }: PostTestState['postStatus'] = useSelector(
-  //   (state: RootState) => state.postTest.postStatus
-  // );
+  const { loading, success, error }: PostTestState['postStatus'] = useSelector(
+    (state: RootState) => state.postTest.postStatus
+  );
   const testForm = useSelector((state: RootState) => state.test);
   const history = useHistory();
 
@@ -66,10 +66,10 @@ function TestFormContainer() {
       dispatch(saveAnswer(testData));
       history.push('./test'); // Rerendering
       const data = dispatch(postTest(testForm));
-      // if (success) {
-      console.log(data);
-      history.push('./result');
-      // }
+      if (success) {
+        console.log(data);
+        history.push('./result');
+      }
     }
   };
 

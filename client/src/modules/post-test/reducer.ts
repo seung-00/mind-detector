@@ -11,10 +11,7 @@ const initialState: any = {
   centers: [],
 };
 
-const postTest = (
-  state: types.PostTestState = initialState,
-  action: types.PostTestAction
-) => {
+const postTest = (state: any = initialState, action: types.PostTestAction) => {
   switch (action.type) {
     case actions.POST_TEST:
       return {
@@ -49,12 +46,10 @@ const postTest = (
         level: action.payload,
       };
     case actions.FETCH_CENTERS:
-      return action.payload.map((center: any, idx: any) => {
-        return {
-          ...state,
-          [center.centerid]: center,
-        };
-      });
+      return {
+        ...state,
+        centers: action.payload,
+      };
     default:
       return state;
   }

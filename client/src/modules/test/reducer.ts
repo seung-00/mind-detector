@@ -36,7 +36,7 @@ function study(
         privacy: {
           sex: action.payload.sex,
           age: action.payload.age,
-          job: action.payload.age,
+          job: action.payload.job,
           province: action.payload.province,
           city: action.payload.city,
         },

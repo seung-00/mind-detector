@@ -31,7 +31,7 @@ export const postTestError = (error: AxiosError) => {
 };
 
 export const fetchLevel = (level: any) => {
-  console.log('fetch 완료!');
+  console.log('level fetch 완료!');
   return {
     type: FETCH_LEVEL,
     payload: level,
@@ -39,7 +39,8 @@ export const fetchLevel = (level: any) => {
 };
 
 export const fetchCenters = (centers: any) => {
-  console.log('fetch 완료!');
+  console.log('centers fetch 완료!');
+  console.log(centers);
   return {
     type: FETCH_CENTERS,
     payload: centers,
