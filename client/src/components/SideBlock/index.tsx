@@ -8,7 +8,7 @@ const SideWrapper = styled.div`
   width: 33vw;
   height: inherit;
   background-color: #eeeeee;
-  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.09);
+  box-shadow: 0rem 0.4rem 2.3rem rgba(0, 0, 0, 0.09);
   display: flex;
   justify-content: center;
 `;
@@ -22,9 +22,9 @@ const ManualTitle = styled.p`
   font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: 900;
-  font-size: 15px;
-  line-height: 21px;
-  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  letter-spacing: -0.05rem;
   /* color: gray; */
   color: ${({ manualToggle }: { manualToggle: boolean }) =>
     manualToggle ? '#444444' : '#cacaca'};
@@ -32,7 +32,7 @@ const ManualTitle = styled.p`
 `;
 
 const ManualArea = styled.div`
-  flex: 0 0 156px;
+  flex: 0 0 15.6rem;
   display: flex;
   flex-direction: column;
 `;

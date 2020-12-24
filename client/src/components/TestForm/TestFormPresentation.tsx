@@ -4,20 +4,20 @@ import TextareaAutosize from 'react-autosize-textarea';
 import CustomButton from '../common/CustomButton';
 
 const ContentWrapper = styled.div`
+  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  padding: 96px 74px;
+  padding: 9.6rem 7.4rem;
   color: #333333;
   em {
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
-    line-height: 29px;
-    letter-spacing: -0.5px;
-    margin-right: 40px;
+    font-size: 2.2rem;
+    line-height: 2.9rem;
+    letter-spacing: -0.05rem;
+    margin-right: 4rem;
   }
 `;
 
@@ -27,13 +27,13 @@ const ContentArea = styled.div`
 `;
 
 const Description = styled.p`
-  width: 567px;
-  height: 300px;
+  width: 56.7rem;
+  height: 30rem;
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 29px;
-  letter-spacing: -0.5px;
+  font-size: 1.8rem;
+  line-height: 2.9rem;
+  letter-spacing: -0.05rem;
   margin-left: auto;
 `;
 
@@ -51,25 +51,25 @@ const FormWrapper = styled.div`
 `;
 
 const FormBox = styled.div`
-  width: 783px;
-  height: 789px;
+  width: 78.3rem;
+  height: 78.9rem;
   background-color: white;
-  border-radius: 31px;
-  filter: drop-shadow(0px 8px 22px rgba(0, 0, 0, 0.08));
+  border-radius: 3.1rem;
+  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(0, 0, 0, 0.08));
 `;
 
 const StyledAnswerArea = styled(TextareaAutosize)`
   all: unset;
-  letter-spacing: 4.5px;
-  font-size: 18px;
-  min-height: 120px;
-  line-height: 30px;
+  letter-spacing: 0.45rem;
+  font-size: 1.8rem;
+  min-height: 12rem;
+  line-height: 3rem;
   background-image: linear-gradient(
     transparent,
-    transparent calc(30px - 1px),
-    ${(props) => props.theme.main} 0px
+    transparent calc(3rem - 0.1rem),
+    ${(props) => props.theme.main} 0rem
   );
-  background-size: 100% 30px; // 20px 마다
+  background-size: 100% 3rem; // 2rem 마다
 `;
 
 interface TestProp {
@@ -79,7 +79,7 @@ interface TestProp {
   initializePage: () => void;
   handleText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handlePrevious: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  handleNext: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleNext: () => void;
   handleTest: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -108,9 +108,18 @@ function TestBlock({
             <Description>{question}</Description>
             <StyledAnswerArea onChange={handleText} value={answer} />
             <ButtonArea>
-              <CustomButton onClick={handlePrevious}>이전</CustomButton>
+              <CustomButton onSubmit={handlePrevious}>이전</CustomButton>
               {page == 10 ? (
-                <CustomButton onClick={handleTest}>결과보기</CustomButton>
+                <CustomButton
+                  onClick={(
+                    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+                  ) => {
+                    handleNext();
+                    handleTest(e);
+                  }}
+                >
+                  결과보기
+                </CustomButton>
               ) : (
                 <CustomButton onClick={handleNext}>다음</CustomButton>
               )}

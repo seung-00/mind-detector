@@ -8,81 +8,75 @@ import CustomButton from '../common/CustomButton';
 import Gage from './Gage';
 import HospitalBox from './HospitalBox';
 
-const FormWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 6vh;
-`;
-
 const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 1140px; */
-  min-height: 1140px;
+  width: 70vw;
+  min-height: 114rem;
+  margin-bottom: 10vh;
   background-color: white;
-  border-radius: 31px;
-  filter: drop-shadow(0px 8px 22px rgba(0, 0, 0, 0.08));
+  border-radius: 3.1rem;
+  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(172, 155, 155, 0.08));
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 74px;
+  padding: 10rem 7.4rem;
 `;
 
 const DiagnosisTitle = styled.h1`
   font-weight: 700;
   color: #333333;
-  font-size: 38px;
-  line-height: 29px;
-  letter-spacing: -0.5px;
+  font-size: 4rem;
+  line-height: 2.9rem;
+  letter-spacing: -0.05rem;
 `;
 
 const DiagnosisBody = styled.div`
-  width: 586px;
-  height: 93px;
-  font-size: 18px;
-  line-height: 31px;
+  width: 58.6rem;
+  height: 9.3rem;
+  font-size: 2rem;
+  line-height: 3.1rem;
   text-align: center;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05rem;
   color: #333333;
   & + button {
-    margin-top: 80px;
+    margin-top: 8rem;
   }
 `;
 
 const Border = styled.div`
+  box-sizing: border-box;
   position: relative;
-  width: 936.5px;
-  margin: 110px 0 72px 0;
+  width: 60vw;
+  margin: 11rem 0 7.2rem 0;
   border: 1px solid #cacaca;
 `;
 
 const BlueArea = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 949px;
+  width: 60vw;
 `;
 
 const BlueBox = styled.div`
-  width: 350px;
-  height: 155px;
-  padding: 32px 51px;
+  width: 35rem;
+  height: 15.5rem;
+  padding: 3.2rem 5.1rem;
   font-weight: 500;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  font-size: 30px;
-  line-height: 53px;
+  box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+  font-size: 3rem;
+  line-height: 5.3rem;
   /* or 177% */
   text-align: center;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05rem;
   color: #333333;
   em {
-    font-size: 35px;
+    font-size: 3.5rem;
     font-weight: 600;
     color: ${(props) => props.theme.main};
   }
@@ -91,16 +85,16 @@ const BlueBox = styled.div`
 const BlueWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 267px;
+  height: 26.7rem;
   p {
-    margin-top: 20px;
+    margin-top: 2rem;
     margin-left: auto;
     font-weight: 700;
-    font-size: 15px;
-    line-height: 29px;
+    font-size: 1.5rem;
+    line-height: 2.9rem;
     /* identical to box height, or 193% */
     text-align: center;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.05rem;
     color: #cacaca;
   }
 `;
@@ -125,49 +119,47 @@ function ResultForm() {
   const centers = useSelector((state: RootState) => state.postTest.centers);
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
-    <FormWrapper>
-      <FormBox>
-        <ContentWrapper>
-          <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
-          <Gage level={level} />
-          <DiagnosisBody>{bodies[halfLevl - 1]}</DiagnosisBody>
-          {level > 5 && (
-            <CustomButton
-              onClick={() => {
-                setHospitalToggle(!hospitalToggle);
-              }}
-            >
-              상담센터 정보보기
-            </CustomButton>
-          )}
-          {hospitalToggle && (
-            <>
-              <HospitalBox hospitalMock={centers} />
-            </>
-          )}
-          <Border />
-          <BlueWrapper>
-            <BlueArea>
-              <BlueBox>
-                이번달,
-                <br />
-                평균 우울지수는
-                <br />
-                <em>높음</em> 입니다.
-              </BlueBox>
-              <BlueBox>
-                오늘,
-                <br />
-                평균 우울지수는
-                <br />
-                <em>보통</em> 입니다.
-              </BlueBox>
-            </BlueArea>
-            <p>* 마인드 디텍터 사용자의 평균 우울지수입니다.</p>
-          </BlueWrapper>
-        </ContentWrapper>
-      </FormBox>
-    </FormWrapper>
+    <FormBox>
+      <ContentWrapper>
+        <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
+        <Gage level={level} />
+        <DiagnosisBody>{bodies[halfLevl - 1]}</DiagnosisBody>
+        {level > 5 && (
+          <CustomButton
+            onClick={() => {
+              setHospitalToggle(!hospitalToggle);
+            }}
+          >
+            상담센터 정보보기
+          </CustomButton>
+        )}
+        {hospitalToggle && (
+          <>
+            <HospitalBox hospitalMock={centers} />
+          </>
+        )}
+        <Border />
+        <BlueWrapper>
+          <BlueArea>
+            <BlueBox>
+              이번달,
+              <br />
+              평균 우울지수는
+              <br />
+              <em>높음</em> 입니다.
+            </BlueBox>
+            <BlueBox>
+              오늘,
+              <br />
+              평균 우울지수는
+              <br />
+              <em>보통</em> 입니다.
+            </BlueBox>
+          </BlueArea>
+          <p>* 마인드 디텍터 사용자의 평균 우울지수입니다.</p>
+        </BlueWrapper>
+      </ContentWrapper>
+    </FormBox>
   );
 }
 

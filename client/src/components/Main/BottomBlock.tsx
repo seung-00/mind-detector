@@ -9,7 +9,7 @@ const CircleWrapper = styled.div`
   width: 100%;
   display: flex;
   margin-top: auto;
-  top: 550px;
+  top: 55rem;
 `;
 const LeftCircleWrapper = styled.div`
   margin-right: auto;

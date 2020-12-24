@@ -3,23 +3,23 @@ import styled from 'styled-components';
 import CustomButton from '../common/CustomButton';
 
 const HospitalArea = styled.div`
-  margin-top: 68px;
-  width: 935px;
-  height: 568px;
+  margin-top: 6.8rem;
+  width: 93.5rem;
+  height: 56.8rem;
   background: #ffffff;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
+  box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
 `;
 
 const VisitButton = styled(CustomButton)`
-  height: 35px;
+  height: 3.5rem;
   color: white;
   background-color: ${(props) => props.theme.main};
 `;
 
 const HospitalList = styled.ul`
   /* display: flex; */
-  padding: 62px 60px 0px 73px;
+  padding: 6.2rem 6rem 0rem 7.3rem;
 `;
 
 const HospitalInfo = styled.li`
@@ -31,33 +31,35 @@ const HospitalInfo = styled.li`
 const HospitalTextArea = styled.div`
   display: flex;
   flex-direction: column;
-  line-height: 31px;
-  letter-spacing: -0.5px;
+  line-height: 3.1rem;
+  letter-spacing: -0.05rem;
 
   > em {
-    margin: 0px 5px;
+    margin: 0rem 0.5rem;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 2rem;
   }
   > span {
-    font-size: 15px;
-    margin: 14px 0px;
+    font-size: 1.5rem;
+    margin: 1.4rem 0rem;
   }
 `;
 
 const Border = styled.div`
-  margin-top: 15px;
-  margin-bottom: 30px;
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
   border: 1px solid #cacaca;
 `;
 
 const Fence = styled.span`
-  width: 0px;
-  height: 10.5px;
+  box-sizing: border-box;
+  width: 0rem;
+  height: 1.05rem;
   border: 1px solid #333333;
   order: 1;
   flex-grow: 0;
-  margin: 0 14px 0 14px;
+  margin: 0 1.4rem 0 1.4rem;
 `;
 
 function HospitalBox({ hospitalMock }: any) {

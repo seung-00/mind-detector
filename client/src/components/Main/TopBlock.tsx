@@ -12,7 +12,7 @@ const TopWrapper = styled.div`
   position: absolute;
   width: 100vw;
   height: 50vh;
-  max-height: 300px;
+  max-height: 30rem;
   display: flex;
 `;
 
@@ -25,27 +25,27 @@ const ContentWrapper = styled.div`
 
 const LeftConetent = styled.em`
   width: auto;
-  padding-right: 70px;
+  padding-right: 7rem;
   flex: 0 1 auto;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 29px;
+  font-size: 2rem;
+  line-height: 2.9rem;
   color: #333333;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05rem;
 `;
 
 const Description = styled.p`
   width: auto;
   font-weight: 600;
-  font-size: 15px;
-  line-height: 29px;
-  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  line-height: 2.9rem;
+  letter-spacing: -0.05rem;
   color: #444444;
 `;
 
 const TitleArea = styled.div`
   display: flex;
-  flex: 0 0 235px;
+  flex: 0 0 23.5rem;
   padding-left: 10vw;
 `;
 
@@ -58,14 +58,14 @@ const ContentArea = styled.div`
 const RightContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 440px;
+  width: 44rem;
 `;
 
 const MainButton = styled(CustomButton)`
-  width: 105px;
-  margin-top: 22px;
+  width: 10.5rem;
+  margin-top: 2.2rem;
   p + & {
-    margin-top: 50px;
+    margin-top: 5rem;
   }
 `;
 

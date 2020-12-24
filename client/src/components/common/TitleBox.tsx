@@ -3,14 +3,14 @@ import styled, { css } from 'styled-components';
 
 const TitleWrapper = styled.div`
   font-weight: 600;
-  font-size: 78px;
-  line-height: 92.5px;
-  letter-spacing: -1.5px;
+  font-size: 8rem;
+  line-height: 9rem;
+  letter-spacing: -0.15rem;
   ${(props: any) =>
     props.isSmall &&
     css`
-      font-size: 38px;
-      line-height: 47px;
+      font-size: 4rem;
+      line-height: 5rem;
     `}
 
   color: ${(props) => props.theme.main};

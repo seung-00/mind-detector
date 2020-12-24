@@ -10,8 +10,8 @@ import Gage7 from '../../styles/img/gage7.png';
 import Gage8 from '../../styles/img/gage8.png';
 
 const GageWrapper = styled.div`
-  margin-top: 87px;
-  margin-bottom: 92px;
+  margin-top: 8.7rem;
+  margin-bottom: 9.2rem;
 `;
 
 interface GageProps {

@@ -6,6 +6,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+html {
+  font-size: 62.5% !important;
+}
+
 /* 텍스트 강조 지우기 */
 address,
 caption,
