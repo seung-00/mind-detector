@@ -1,19 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { respondTo } from '../../styles/mixin';
 
 const TitleWrapper = styled.div`
   font-weight: 600;
-  font-size: 8rem;
-  line-height: 9rem;
   letter-spacing: -0.15rem;
+
+  // Small
+  font-size: 5rem;
+  line-height: 6rem;
+
+  ${respondTo.desktop`
+    font-size: 8rem;
+    line-height: 9.2rem;
+  `}
+  color: ${(props) => props.theme.main};
+
   ${(props: any) =>
     props.isSmall &&
     css`
-      font-size: 4rem;
-      line-height: 5rem;
+      font-size: 5rem;
+      line-height: 6rem;
     `}
-
-  color: ${(props) => props.theme.main};
 `;
 
 function TitleBox({ isSmall, ...rest }: any) {

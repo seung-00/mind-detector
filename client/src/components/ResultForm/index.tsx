@@ -142,7 +142,7 @@ function ResultForm() {
         <BlueWrapper>
           <BlueArea>
             <BlueBox>
-              이번달,
+              이번 달,
               <br />
               평균 우울지수는
               <br />

@@ -5,15 +5,20 @@ import TitleBox from '../common/TitleBox';
 import CustomButton from '../common/CustomButton';
 import PrivacyBox from './PrivacyBox';
 import { initializeForm, savePrivacy } from '../../modules/test';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../modules';
+import { useDispatch } from 'react-redux';
+import { respondTo } from '../../styles/mixin';
 
 const TopWrapper = styled.div`
-  position: absolute;
   width: 100vw;
   height: 50vh;
   max-height: 30rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${respondTo.tablet`
+    align-items: stretch;
+    flex-direction: row;
+  `}
 `;
 
 const ContentWrapper = styled.div`
@@ -25,13 +30,18 @@ const ContentWrapper = styled.div`
 
 const LeftConetent = styled.em`
   width: auto;
-  padding-right: 7rem;
   flex: 0 1 auto;
-  font-weight: 600;
   font-size: 2rem;
-  line-height: 2.9rem;
   color: #333333;
   letter-spacing: -0.05rem;
+  padding: 5vh 5vh;
+  line-height: 19px;
+  font-weight: 700;
+  ${respondTo.tablet`
+    padding: 0rem 7rem 0rem 0rem;
+    line-height: 2.9rem;
+    font-weight: 600;
+  `}
 `;
 
 const Description = styled.p`
@@ -41,31 +51,57 @@ const Description = styled.p`
   line-height: 2.9rem;
   letter-spacing: -0.05rem;
   color: #444444;
+
+  ${respondTo.tablet`
+    padding: 0rem;
+  `}
 `;
 
 const TitleArea = styled.div`
   display: flex;
-  flex: 0 0 23.5rem;
-  padding-left: 10vw;
+  margin: 3vh 3vh;
+  ${respondTo.tablet`
+    margin: 0rem;
+    flex: 0 0 23.5rem;
+    padding-left: 10vw;
+  `}
 `;
 
 const ContentArea = styled.div`
   display: flex;
-  margin-left: auto;
-  padding-right: 10vw;
+  flex-direction: column;
+  text-align: center;
+  ${respondTo.tablet`
+    text-align: start;
+    flex-direction: row;
+    padding-right: 10vw;
+    margin-left: auto;
+  `};
 `;
 
 const RightContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 44rem;
+  align-items: center;
+
+  ${respondTo.tablet`
+    align-items: stretch;
+    width: 44rem;
+  `};
 `;
 
 const MainButton = styled(CustomButton)`
-  width: 10.5rem;
+  width: 80px;
+  height: 32px;
+  ${respondTo.tablet`
+    width: 10.5rem;
+    p + & {
+    margin-top: 5rem;
+  }
+  `};
   margin-top: 2.2rem;
   p + & {
-    margin-top: 5rem;
+    margin-top: 7vh;
   }
 `;
 
@@ -114,7 +150,6 @@ function TopBlock() {
             <PrivacyBox handleForm={handleForm} />
             <MainButton
               onClick={() => {
-                // console.log(Object.values(privacy));
                 if (Object.values(privacy).includes('선택')) {
                   alert('분석을 위해 개인정보 기입을 부탁드립니다.');
                 } else {

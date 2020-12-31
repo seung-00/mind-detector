@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   width: autod;
   box-sizing: border-box;
   background: transparent;
-  padding: 1rem 1.9rem;
+  padding: 1.2rem 1.9rem;
   text-align: center;
   font-style: normal;
   font-weight: bold;
@@ -16,6 +16,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 7.6rem;
   color: ${(props) => props.theme.main};
+
   ${(props: any) =>
     props.hoverShadow
       ? css`

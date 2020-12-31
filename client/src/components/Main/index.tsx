@@ -4,11 +4,13 @@ import BottomBlock from './BottomBlock';
 import TopBlock from './TopBlock';
 
 const TopBlank = styled.div`
-  height: 5vw;
+  height: 10vh;
 `;
 
 const MainWrapper = styled.div`
-  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 function Main() {
