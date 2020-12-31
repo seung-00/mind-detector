@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
+import Footer from './components/common/Footer';
 import MainPage from './pages/MainPage';
 import ResultPage from './pages/ResultPage';
 import TestPage from './pages/TestPage';
@@ -17,6 +18,7 @@ function App() {
           <Route path="/result" component={ResultPage} />
         </Switch>
       </BrowserRouter>
+      <Footer />
     </ThemeProvider>
   );
 }
