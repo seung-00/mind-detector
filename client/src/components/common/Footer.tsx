@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FooterWrapper = styled.footer`
+const FooterArea = styled.footer`
   height: 10vh;
 `;
 
 function Footer() {
   return (
-    <FooterWrapper>
+    <FooterArea>
       <div></div>
-    </FooterWrapper>
+    </FooterArea>
   );
 }
 

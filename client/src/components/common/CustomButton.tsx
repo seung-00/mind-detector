@@ -6,6 +6,7 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   background: transparent;
   padding: 1.2rem 1.9rem;
+  border-radius: 7.6rem;
   text-align: center;
   font-style: normal;
   font-weight: bold;
@@ -14,7 +15,6 @@ const StyledButton = styled.button`
   line-height: 1.5rem;
   background-color: white;
   border: none;
-  border-radius: 7.6rem;
   color: ${(props) => props.theme.main};
 
   ${(props: any) =>

@@ -14,14 +14,15 @@ const TitleWrapper = styled.div`
     font-size: 8rem;
     line-height: 9.2rem;
   `}
-  color: ${(props) => props.theme.main};
 
   ${(props: any) =>
     props.isSmall &&
     css`
-      font-size: 5rem;
-      line-height: 6rem;
+      font-size: 5rem !important;
+      line-height: 6rem !important;
     `}
+
+  color: ${(props) => props.theme.main};
 `;
 
 function TitleBox({ isSmall, ...rest }: any) {

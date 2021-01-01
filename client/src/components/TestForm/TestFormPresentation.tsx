@@ -2,13 +2,28 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import TextareaAutosize from 'react-autosize-textarea';
 import CustomButton from '../common/CustomButton';
+import { respondTo } from '../../styles/mixin';
+
+const FormWrapper = styled.div`
+  position: relative;
+  min-height: 60%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0rem 4rem;
+  ${respondTo.desktop`
+    padding: 0rem 6rem;
+  `}
+`;
 
 const ContentWrapper = styled.div`
-  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 9.6rem 7.4rem;
+  padding: 5rem 5.5rem;
+  ${respondTo.desktop`
+    padding: 9.6rem 7.4rem;
+  `}
   color: #333333;
   em {
     font-family: 'Noto Sans KR';
@@ -22,37 +37,69 @@ const ContentWrapper = styled.div`
 `;
 
 const ContentArea = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 const Description = styled.p`
-  width: 56.7rem;
-  height: 30rem;
   font-style: normal;
+  height: 25rem;
   font-weight: 600;
-  font-size: 1.8rem;
   line-height: 2.9rem;
+  font-size: 1.8rem;
   letter-spacing: -0.05rem;
-  margin-left: auto;
 `;
 
-const ButtonArea = styled.div`
-  margin-top: auto;
+const ButtonWrapper = styled.div`
+  padding: 0rem 2rem;
   display: flex;
   justify-content: space-between;
 `;
 
-const FormWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const ButtonArea = styled.div`
+  position: absolute;
+  width: 100%;
+  left: 0rem;
+  bottom: -15rem;
+  ${respondTo.desktop`
+    position: static;
+    margin-top: auto;
+  `}
+`;
+
+const TestButton = styled(CustomButton)`
+  border-radius: 72px;
+  padding: 2.3rem;
+  ${respondTo.desktop`
+    padding: 1.2rem 1.9rem;
+    border-radius: 7.6rem;
+  `}
+  .desktop-btn {
+    display: none;
+    ${respondTo.desktop`
+      display: inline;
+    `}
+  }
+  .mobile-btn {
+    font-size: 3.5rem;
+    display: inline;
+    ${respondTo.desktop`
+      display: none;
+    `}
+  }
+  .mobile-rst {
+    font-size: 2.5rem;
+  }
 `;
 
 const FormBox = styled.div`
-  width: 78.3rem;
-  height: 78.9rem;
+  height: 50rem;
+  /* width: 50rem; */
+  flex: 1;
+  ${respondTo.desktop`
+    height: 78.9rem;
+  `}
   background-color: white;
   border-radius: 3.1rem;
   filter: drop-shadow(0rem 0.8rem 2.2rem rgba(0, 0, 0, 0.08));
@@ -108,21 +155,30 @@ function TestBlock({
             <Description>{question}</Description>
             <StyledAnswerArea onChange={handleText} value={answer} />
             <ButtonArea>
-              <CustomButton onSubmit={handlePrevious}>이전</CustomButton>
-              {page == 10 ? (
-                <CustomButton
-                  onClick={(
-                    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                  ) => {
-                    handleNext();
-                    handleTest(e);
-                  }}
-                >
-                  결과보기
-                </CustomButton>
-              ) : (
-                <CustomButton onClick={handleNext}>다음</CustomButton>
-              )}
+              <ButtonWrapper>
+                <TestButton onClick={handlePrevious}>
+                  <span className="desktop-btn">이전</span>
+                  <span className="mobile-btn">{'<'}</span>
+                </TestButton>
+                {page == 10 ? (
+                  <TestButton
+                    onClick={(
+                      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+                    ) => {
+                      handleNext();
+                      handleTest(e);
+                    }}
+                  >
+                    <span className="desktop-btn">결과보기</span>
+                    <span className="mobile-btn mobile-rst">결과</span>
+                  </TestButton>
+                ) : (
+                  <TestButton onClick={handleNext}>
+                    <span className="desktop-btn">다음</span>
+                    <span className="mobile-btn">{'>'}</span>
+                  </TestButton>
+                )}
+              </ButtonWrapper>
             </ButtonArea>
           </ContentArea>
         </ContentWrapper>

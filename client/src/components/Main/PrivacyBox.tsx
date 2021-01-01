@@ -4,8 +4,7 @@ import * as selectionConstant from '../../constants/selection';
 import { respondTo } from '../../styles/mixin';
 
 const PrivacyArea = styled.div`
-  width: 56.2rem;
-  height: 25.5rem;
+  padding: 1.2rem 1.5rem;
   margin: 3vh 0vh 3vh 0vh;
   ${respondTo.desktop`
     margin: 0vh;

@@ -15,7 +15,7 @@ const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${respondTo.tablet`
+  ${respondTo.desktop`
     align-items: stretch;
     flex-direction: row;
   `}
@@ -37,7 +37,7 @@ const LeftConetent = styled.em`
   padding: 5vh 5vh;
   line-height: 19px;
   font-weight: 700;
-  ${respondTo.tablet`
+  ${respondTo.desktop`
     padding: 0rem 7rem 0rem 0rem;
     line-height: 2.9rem;
     font-weight: 600;
@@ -60,6 +60,7 @@ const Description = styled.p`
 const TitleArea = styled.div`
   display: flex;
   margin: 3vh 3vh;
+
   ${respondTo.tablet`
     margin: 0rem;
     flex: 0 0 23.5rem;
@@ -93,8 +94,8 @@ const RightContent = styled.div`
 const MainButton = styled(CustomButton)`
   width: 80px;
   height: 32px;
+
   ${respondTo.tablet`
-    width: 10.5rem;
     p + & {
     margin-top: 5rem;
   }

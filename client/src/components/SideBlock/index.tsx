@@ -1,16 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { respondTo } from '../../styles/mixin';
 import TitleBox from '../common/TitleBox';
 import Manual from './Manual';
 
 const SideWrapper = styled.div`
-  width: 33vw;
-  height: inherit;
-  background-color: #eeeeee;
-  box-shadow: 0rem 0.4rem 2.3rem rgba(0, 0, 0, 0.09);
-  display: flex;
-  justify-content: center;
+  display: none;
+  ${respondTo.desktop`    
+    display: flex;
+    width: 33vw;
+    height: inherit;
+    background-color: #eeeeee;
+    box-shadow: 0rem 0.4rem 2.3rem rgba(0, 0, 0, 0.09);
+    justify-content: center;
+  `}
 `;
 
 const SmallTitleBox = styled(TitleBox)`
@@ -42,7 +46,7 @@ function SideBlock() {
   return (
     <SideWrapper>
       <ManualArea>
-        <SmallTitleBox isSmall={true} />
+        <SmallTitleBox isSmall />
         <ManualTitle
           manualToggle={manualToggle}
           onClick={() => {
