@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../components/common/Footer';
+import Header from '../components/common/Header';
 import TitleBox from '../components/common/TitleBox';
-import ResultForm from '../components/ResultForm';
+import Result from '../components/Result';
 
 const ResultPageWrapper = styled.div`
   display: flex;
@@ -10,14 +12,16 @@ const ResultPageWrapper = styled.div`
 `;
 
 const TopTitleBox = styled(TitleBox)`
-  margin: 6vh 0;
+  margin-bottom: 4vh;
 `;
 
 function ResultPage() {
   return (
     <ResultPageWrapper>
+      <Header />
       <TopTitleBox isSmall />
-      <ResultForm />
+      <Result />
+      <Footer />
     </ResultPageWrapper>
   );
 }

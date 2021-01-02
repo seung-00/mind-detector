@@ -2,8 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
-  width: autod;
-  box-sizing: border-box;
+  display: inline-block;
   background: transparent;
   padding: 1.2rem 1.9rem;
   border-radius: 7.6rem;
@@ -16,7 +15,7 @@ const StyledButton = styled.button`
   background-color: white;
   border: none;
   color: ${(props) => props.theme.main};
-
+  cursor: pointer;
   ${(props: any) =>
     props.hoverShadow
       ? css`
@@ -29,7 +28,6 @@ const StyledButton = styled.button`
       : css`
           box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
         `}
-  cursor: pointer;
 `;
 
 function CustomButton({ hoverShadow, ...rest }: any) {

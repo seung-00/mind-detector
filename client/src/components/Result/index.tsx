@@ -3,99 +3,110 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootState } from '../../modules';
+import { respondTo } from '../../styles/mixin';
 import CustomButton from '../common/CustomButton';
 
 import Gage from './Gage';
-import HospitalBox from './HospitalBox';
+import Hospital from './Hospital';
 
-const FormBox = styled.div`
+const ResultWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  min-width: 100%;
+  min-height: 60%;
   align-items: center;
-  width: 70vw;
-  min-height: 114rem;
-  margin-bottom: 10vh;
-  background-color: white;
-  border-radius: 3.1rem;
-  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(172, 155, 155, 0.08));
+  padding: 0rem 5rem;
+  ${respondTo.desktop`
+    padding: 0rem 8rem
+  `}
 `;
 
-const ContentWrapper = styled.div`
+const ResultForm = styled.div`
+  padding: 7rem 5.5em;
+  flex: 1;
   display: flex;
+  border-radius: 3.1rem;
+  background-color: white;
   flex-direction: column;
   align-items: center;
-  padding: 10rem 7.4rem;
+  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(0, 0, 0, 0.08));
+  ${respondTo.desktop`
+    font-size: 3.5rem;
+  `}
 `;
 
 const DiagnosisTitle = styled.h1`
+  padding: 2rem 0rem;
   font-weight: 700;
   color: #333333;
-  font-size: 4rem;
-  line-height: 2.9rem;
+  font-size: 2.2rem;
   letter-spacing: -0.05rem;
+  ${respondTo.desktop`
+    padding: 5rem;
+    font-size: 3.5rem;
+  `}
 `;
 
 const DiagnosisBody = styled.div`
-  width: 58.6rem;
   height: 9.3rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 3.1rem;
   text-align: center;
   letter-spacing: -0.05rem;
   color: #333333;
   & + button {
-    margin-top: 8rem;
+    margin: 3rem 0;
   }
 `;
 
 const Border = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  width: 60vw;
-  margin: 11rem 0 7.2rem 0;
-  border: 1px solid #cacaca;
-`;
-
-const BlueArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 60vw;
-`;
-
-const BlueBox = styled.div`
-  width: 35rem;
-  height: 15.5rem;
-  padding: 3.2rem 5.1rem;
-  font-weight: 500;
-  box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
-  border-radius: 1.6rem;
-  font-size: 3rem;
-  line-height: 5.3rem;
-  /* or 177% */
-  text-align: center;
-  letter-spacing: -0.05rem;
-  color: #333333;
-  em {
-    font-size: 3.5rem;
-    font-weight: 600;
-    color: ${(props) => props.theme.main};
-  }
+  width: 80%;
+  margin: 1rem 0;
+  border: 1px solid #efefef;
 `;
 
 const BlueWrapper = styled.div`
+  min-width: 80%;
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
-  height: 26.7rem;
   p {
     margin-top: 2rem;
     margin-left: auto;
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 2.9rem;
-    /* identical to box height, or 193% */
     text-align: center;
     letter-spacing: -0.05rem;
     color: #cacaca;
+  }
+`;
+
+const BlueArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${respondTo.desktop`
+    flex-direction: row;
+  `}
+`;
+
+const BlueBox = styled.div`
+  flex: 1;
+  height: auto;
+  padding: 2.5rem 5.1rem;
+  margin: 1rem;
+  font-weight: 500;
+  box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+  font-size: 2rem;
+  line-height: 3.3rem;
+  text-align: center;
+  letter-spacing: -0.05rem;
+  color: #333333;
+  em {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: ${(props) => props.theme.main};
   }
 `;
 
@@ -113,16 +124,33 @@ const bodies = [
   '전문가와의 상담은 우울감에서 빠르게 벗어나는 데 큰 도움을 줍니다. 지금 바로 페이지 하단의 "상담센터 정보보기" 버튼을 눌러 주변의 상담센터를 확인하세요.',
 ];
 
-function ResultForm() {
-  const level = useSelector((state: RootState) => state.postTest.level);
+function Result() {
+  // const level = useSelector((state: RootState) => state.postTest.level);
+  const level = 8;
   const halfLevl = Math.round(level / 2);
-  const centers = useSelector((state: RootState) => state.postTest.centers);
+  // const centers = useSelector((state: RootState) => state.postTest.centers);
+  const centers = [
+    {
+      address: '용인시 기흥구 신갈로58번길 11 (기흥구 보건소 3층)',
+      centerid: 547,
+      name: '보건소A',
+      phonecall: '1997',
+      province: '경기도_용인시',
+    },
+    {
+      address: '용인시 기흥구 신갈로58번길 11 (기흥구 보건소 3층)',
+      centerid: 547,
+      name: '보건소B',
+      phonecall: '1997',
+      province: '경기도_용인시',
+    },
+  ];
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
-    <FormBox>
-      <ContentWrapper>
+    <ResultWrapper>
+      <ResultForm>
         <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
-        <Gage level={level} />
+        {/* <Gage level={level} /> */}
         <DiagnosisBody>{bodies[halfLevl - 1]}</DiagnosisBody>
         {level > 5 && (
           <CustomButton
@@ -130,12 +158,16 @@ function ResultForm() {
               setHospitalToggle(!hospitalToggle);
             }}
           >
-            상담센터 정보보기
+            {hospitalToggle ? (
+              <span>상담센터 정보 접기</span>
+            ) : (
+              <span>상담센터 정보 보기</span>
+            )}
           </CustomButton>
         )}
         {hospitalToggle && (
           <>
-            <HospitalBox hospitalMock={centers} />
+            <Hospital hospitalDatas={centers} />
           </>
         )}
         <Border />
@@ -158,9 +190,9 @@ function ResultForm() {
           </BlueArea>
           <p>* 마인드 디텍터 사용자의 평균 우울지수입니다.</p>
         </BlueWrapper>
-      </ContentWrapper>
-    </FormBox>
+      </ResultForm>
+    </ResultWrapper>
   );
 }
 
-export default ResultForm;
+export default Result;

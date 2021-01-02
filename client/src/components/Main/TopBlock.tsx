@@ -11,12 +11,11 @@ import { respondTo } from '../../styles/mixin';
 const TopWrapper = styled.div`
   width: 100vw;
   height: 50vh;
-  max-height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   ${respondTo.desktop`
-    align-items: stretch;
+    align-items: flex-start;
     flex-direction: row;
   `}
 `;
@@ -26,6 +25,7 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 const LeftConetent = styled.em`
@@ -52,7 +52,7 @@ const Description = styled.p`
   letter-spacing: -0.05rem;
   color: #444444;
 
-  ${respondTo.tablet`
+  ${respondTo.desktop`
     padding: 0rem;
   `}
 `;
@@ -61,10 +61,9 @@ const TitleArea = styled.div`
   display: flex;
   margin: 3vh 3vh;
 
-  ${respondTo.tablet`
-    margin: 0rem;
+  ${respondTo.desktop`
+    margin: -2rem 0rem 0rem 10rem;
     flex: 0 0 23.5rem;
-    padding-left: 10vw;
   `}
 `;
 
@@ -72,7 +71,7 @@ const ContentArea = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  ${respondTo.tablet`
+  ${respondTo.desktop`
     text-align: start;
     flex-direction: row;
     padding-right: 10vw;
@@ -85,21 +84,21 @@ const RightContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  ${respondTo.tablet`
-    align-items: stretch;
+  ${respondTo.desktop`
+    align-items: flex-start;
     width: 44rem;
   `};
 `;
 
 const MainButton = styled(CustomButton)`
-  width: 80px;
-  height: 32px;
-
-  ${respondTo.tablet`
+  /* display: inline-block;
+  height: 3.2rem;
+  background: white;
+  ${respondTo.desktop`
     p + & {
     margin-top: 5rem;
   }
-  `};
+  `}; */
   margin-top: 2.2rem;
   p + & {
     margin-top: 7vh;

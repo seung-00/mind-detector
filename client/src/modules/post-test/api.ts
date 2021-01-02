@@ -22,7 +22,7 @@ export async function postTestApi(form: types.TestForm) {
   };
 
   const response = await axios.post(
-    'https://api.minddetector.me/testall',
+    'https://test.minddetector.me/testall',
     data,
     head
   );

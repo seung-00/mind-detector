@@ -16,6 +16,17 @@ const FormWrapper = styled.div`
   `}
 `;
 
+const FormBox = styled.div`
+  height: 50rem;
+  ${respondTo.desktop`
+    height: 78.9rem;
+  `}
+  flex: 1;
+  background-color: white;
+  border-radius: 3.1rem;
+  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(0, 0, 0, 0.08));
+`;
+
 const ContentWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -93,18 +104,6 @@ const TestButton = styled(CustomButton)`
   }
 `;
 
-const FormBox = styled.div`
-  height: 50rem;
-  /* width: 50rem; */
-  flex: 1;
-  ${respondTo.desktop`
-    height: 78.9rem;
-  `}
-  background-color: white;
-  border-radius: 3.1rem;
-  filter: drop-shadow(0rem 0.8rem 2.2rem rgba(0, 0, 0, 0.08));
-`;
-
 const StyledAnswerArea = styled(TextareaAutosize)`
   all: unset;
   letter-spacing: 0.45rem;
@@ -153,7 +152,7 @@ function TestBlock({
           <em>Q{page}</em>
           <ContentArea>
             <Description>{question}</Description>
-            <StyledAnswerArea onChange={handleText} value={answer} />
+            <StyledAnswerArea onChange={handleText} value={answer} autoFocus />
             <ButtonArea>
               <ButtonWrapper>
                 <TestButton onClick={handlePrevious}>

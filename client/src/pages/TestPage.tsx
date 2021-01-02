@@ -5,6 +5,7 @@ import Header from '../components/common/Header';
 import TitleBox from '../components/common/TitleBox';
 import SideBlock from '../components/SideBlock';
 import TestForm from '../components/TestForm/';
+import { respondTo } from '../styles/mixin';
 
 const TestPageWrapper = styled.div`
   height: 100vh;
@@ -18,6 +19,13 @@ const FormArea = styled.div`
   align-items: center;
 `;
 
+const TestTitle = styled(TitleBox)`
+  display: inline;
+  ${respondTo.desktop`
+    display: none;
+  `}
+`;
+
 function TestPage() {
   return (
     <TestPageWrapper>
@@ -25,7 +33,7 @@ function TestPage() {
       <FormArea>
         <Header />
         <TestForm />
-        <TitleBox />
+        <TestTitle />
         <Footer />
       </FormArea>
     </TestPageWrapper>

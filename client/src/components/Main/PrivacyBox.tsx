@@ -4,11 +4,18 @@ import * as selectionConstant from '../../constants/selection';
 import { respondTo } from '../../styles/mixin';
 
 const PrivacyArea = styled.div`
-  padding: 1.2rem 1.5rem;
+  flex: 1;
+  min-width: 100%;
   margin: 3vh 0vh 3vh 0vh;
+  padding: 0rem 4rem;
   ${respondTo.desktop`
     margin: 0vh;
+    padding: 0rem 25%;
   `}
+`;
+
+const PrivacyForm = styled.div`
+  flex: 1;
   padding: 3vh 0vh 3vh 0vh;
   display: flex;
   flex-direction: column;
@@ -40,14 +47,12 @@ const InputArea = styled.form`
     cursor: pointer;
   }
   select {
-    box-sizing: border-box;
     font-family: inherit;
     width: 80%;
     padding: 0.8rem;
     font-size: 1.5rem;
     background: #ffffff;
     border: 1px solid ${(props) => props.theme.gray};
-    box-sizing: border-box;
   }
   input[type='radio']:checked {
     background-color: ${(props) => props.theme.main};
@@ -110,60 +115,62 @@ function PrivacyBox({ handleForm }: PrivacyProps) {
 
   return (
     <PrivacyArea>
-      <PrivacyItem>
-        <label>나이</label>
-        <InputArea className="input-area">
-          <select name="age" onChange={handleForm}>
-            <option value="선택">선택</option>
-            {ageList}
-          </select>
-        </InputArea>
-      </PrivacyItem>
-      <PrivacyItem>
-        <label>성별</label>
-        <InputArea>
-          <input
-            type="radio"
-            name="sex"
-            value="male"
-            id="male"
-            onChange={handleForm}
-          />
-          <label htmlFor="male">남자</label>
-          <input
-            type="radio"
-            name="sex"
-            value="female"
-            id="female"
-            onChange={handleForm}
-          />
-          <label htmlFor="female">여자</label>
-        </InputArea>
-      </PrivacyItem>
-      <PrivacyItem>
-        <label>직업</label>
-        <InputArea className="input-area">
-          <select name="job" onChange={handleForm}>
-            <option value="선택">선택</option>
-            {jobList}
-          </select>
-        </InputArea>
-      </PrivacyItem>
-      <PrivacyItem>
-        <label>주거지</label>
-        <InputArea className="input-area">
-          <select name="province" onChange={handleProvince}>
-            <option value="선택">선택</option>
-            {provinceList}
-          </select>
-        </InputArea>
-        <InputArea className="input-area">
-          <select name="city" onChange={handleForm}>
-            <option value="선택">선택</option>
-            {cityList}
-          </select>
-        </InputArea>
-      </PrivacyItem>
+      <PrivacyForm>
+        <PrivacyItem>
+          <label>나이</label>
+          <InputArea className="input-area">
+            <select name="age" onChange={handleForm}>
+              <option value="선택">선택</option>
+              {ageList}
+            </select>
+          </InputArea>
+        </PrivacyItem>
+        <PrivacyItem>
+          <label>성별</label>
+          <InputArea>
+            <input
+              type="radio"
+              name="sex"
+              value="male"
+              id="male"
+              onChange={handleForm}
+            />
+            <label htmlFor="male">남자</label>
+            <input
+              type="radio"
+              name="sex"
+              value="female"
+              id="female"
+              onChange={handleForm}
+            />
+            <label htmlFor="female">여자</label>
+          </InputArea>
+        </PrivacyItem>
+        <PrivacyItem>
+          <label>직업</label>
+          <InputArea className="input-area">
+            <select name="job" onChange={handleForm}>
+              <option value="선택">선택</option>
+              {jobList}
+            </select>
+          </InputArea>
+        </PrivacyItem>
+        <PrivacyItem>
+          <label>주거지</label>
+          <InputArea className="input-area">
+            <select name="province" onChange={handleProvince}>
+              <option value="선택">선택</option>
+              {provinceList}
+            </select>
+          </InputArea>
+          <InputArea className="input-area">
+            <select name="city" onChange={handleForm}>
+              <option value="선택">선택</option>
+              {cityList}
+            </select>
+          </InputArea>
+        </PrivacyItem>
+      </PrivacyForm>
     </PrivacyArea>
   );
 }
