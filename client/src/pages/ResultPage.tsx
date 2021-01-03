@@ -12,7 +12,7 @@ const ResultPageWrapper = styled.div`
 `;
 
 const TopTitleBox = styled(TitleBox)`
-  margin-bottom: 4vh;
+  margin-bottom: 8rem;
 `;
 
 function ResultPage() {

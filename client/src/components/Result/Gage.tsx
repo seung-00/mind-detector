@@ -1,17 +1,71 @@
 import React from 'react';
 import styled from 'styled-components';
-import Gage1 from '../../styles/img/gage1.png';
-import Gage2 from '../../styles/img/gage2.png';
-import Gage3 from '../../styles/img/gage3.png';
-import Gage4 from '../../styles/img/gage4.png';
-import Gage5 from '../../styles/img/gage5.png';
-import Gage6 from '../../styles/img/gage6.png';
-import Gage7 from '../../styles/img/gage7.png';
-import Gage8 from '../../styles/img/gage8.png';
+import { respondTo } from '../../styles/mixin';
 
 const GageWrapper = styled.div`
-  margin-top: 8.7rem;
-  margin-bottom: 9.2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const StyledProgress = styled.progress`
+  width: 80%;
+  height: 4.3rem;
+  ${respondTo.desktop`
+    height: 5.5rem;
+  `}
+  &::-webkit-progress-bar {
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: #eee;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1),
+      inset 1px 2px 3px rgba(0, 0, 0, 0.25);
+  }
+  &::-webkit-progress-value {
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1),
+      inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: ${(props) => props.theme.main};
+  }
+  &::-moz-progress-bar {
+    border-radius: 25px;
+    background-color: #eee;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1),
+      inset 1px 2px 3px rgba(0, 0, 0, 0.25);
+  }
+`;
+
+const ProgressTextContainer = styled.ul`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 88%;
+  .item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const Fence = styled.div`
+  width: 0rem;
+  height: 1.5rem;
+  border: 0.5px solid #cacaca;
+  margin: 1.2rem 0rem;
+  ${respondTo.desktop`
+      height: 1.5rem;
+  `}
+`;
+
+const ProgressTextItem = styled.li`
+  display: flex;
+  justify-content: flex-end;
+  width: 23%;
+  font-size: 1.1rem;
+  ${respondTo.desktop`
+    font-size: 2rem;
+  `}
 `;
 
 interface GageProps {
@@ -21,14 +75,33 @@ interface GageProps {
 function Gage({ level }: GageProps) {
   return (
     <GageWrapper>
-      {level === 1 && <img src={Gage1} />}
-      {level === 2 && <img src={Gage2} />}
-      {level === 3 && <img src={Gage3} />}
-      {level === 4 && <img src={Gage4} />}
-      {level === 5 && <img src={Gage5} />}
-      {level === 6 && <img src={Gage6} />}
-      {level === 7 && <img src={Gage7} />}
-      {level === 8 && <img src={Gage8} />}
+      <StyledProgress max="100" value="25" />
+      <ProgressTextContainer>
+        <ProgressTextItem>
+          <div className="item-wrapper">
+            <Fence />
+            <span>보통</span>
+          </div>
+        </ProgressTextItem>
+        <ProgressTextItem>
+          <div className="item-wrapper">
+            <Fence />
+            <span>약간 높음</span>
+          </div>
+        </ProgressTextItem>
+        <ProgressTextItem>
+          <div className="item-wrapper">
+            <Fence />
+            <span>높음</span>
+          </div>
+        </ProgressTextItem>
+        <ProgressTextItem>
+          <div className="item-wrapper">
+            <Fence />
+            <span>매우 높음</span>
+          </div>
+        </ProgressTextItem>
+      </ProgressTextContainer>
     </GageWrapper>
   );
 }

@@ -8,7 +8,7 @@ const HospitalWrapper = styled.div`
   align-items: center;
   min-width: 100%;
   min-height: 60%;
-  padding: 7rem 0rem;
+  padding: 4rem 0rem;
 `;
 
 const HospitalBox = styled.div`

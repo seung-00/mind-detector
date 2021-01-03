@@ -35,38 +35,40 @@ const ResultForm = styled.div`
 `;
 
 const DiagnosisTitle = styled.h1`
-  padding: 2rem 0rem;
-  font-weight: 700;
+  padding: 2rem 0 8rem 0rem;
+  font-weight: 600;
   color: #333333;
   font-size: 2.2rem;
   letter-spacing: -0.05rem;
   ${respondTo.desktop`
-    padding: 5rem;
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   `}
 `;
 
 const DiagnosisBody = styled.div`
-  height: 9.3rem;
-  font-size: 1.8rem;
+  padding: 0 2.8rem;
+  margin: 5rem 0rem;
+  font-size: 1.5rem;
   line-height: 3.1rem;
-  text-align: center;
+  text-align: start;
   letter-spacing: -0.05rem;
   color: #333333;
-  & + button {
-    margin: 3rem 0;
-  }
+  ${respondTo.desktop`
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0 4.5rem;
+  `}
 `;
 
 const Border = styled.div`
   width: 80%;
-  margin: 1rem 0;
+  margin: 3rem 0;
   border: 1px solid #efefef;
 `;
 
 const BlueWrapper = styled.div`
   min-width: 80%;
-  padding: 4rem 0;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   p {
@@ -97,6 +99,7 @@ const BlueBox = styled.div`
   margin: 1rem;
   font-weight: 500;
   box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
+
   border-radius: 1.6rem;
   font-size: 2rem;
   line-height: 3.3rem;
@@ -118,41 +121,33 @@ const titles = [
 ];
 
 const bodies = [
-  '우울감은 언제든 누구에게나 찾아올 수 있습니다. 그러므로 자신의 마음을 잘 돌보는 것이 중요합니다. 항상 자신의 마음에 귀를 기울이고 따뜻한 온도를 유지해 주세요.',
-  '괜찮습니다. 우리 모두 약간의 불안감을 가지고 살아가고 있으니까요. 그러나 자칫 그 무게가 더 무거워지기 전에 가벼운 산책을 떠나 훌훌 털어버리는 건 어떤가요?',
-  '마음이 보내는 신호에 집중해주세요. 전문가와의 상담은 우울감 해소에 큰 도움이 된답니다. 궁금하다면 페이지 하단의 "상담센터 정보보기" 버튼을 눌러 주변의 상담센터를 확인하세요.',
-  '전문가와의 상담은 우울감에서 빠르게 벗어나는 데 큰 도움을 줍니다. 지금 바로 페이지 하단의 "상담센터 정보보기" 버튼을 눌러 주변의 상담센터를 확인하세요.',
+  '우울감은 언제든 누구에게나 찾아올 수 있습니다.\n 그러므로 자신의 마음을 잘 돌보는 것이 중요합니다. 항상 자신의 마음에 귀를 기울이고 따뜻한 온도를 유지해 주세요.',
+  '괜찮습니다. 우리 모두 약간의 불안감을 가지고 살아가고 있으니까요.\n 그러나 자칫 그 무게가 더 무거워지기 전에 가벼운 산책을 떠나 훌훌 털어버리는 건 어떤가요?',
+  '마음이 보내는 신호에 집중해주세요.\n 전문가와의 상담은 우울감 해소에 큰 도움이 됩니다. \n 페이지 하단의 "상담센터 정보보기" 버튼을 눌러 주변의 상담센터를 확인해보세요.',
+  '전문가와의 상담은 우울감에서 빠르게 벗어나는 데 큰 도움을 줍니다.\n 지금 바로 페이지 하단의 "상담센터 정보보기" 버튼을 눌러 주변의 상담센터를 확인하세요.',
 ];
 
 function Result() {
-  // const level = useSelector((state: RootState) => state.postTest.level);
-  const level = 8;
+  const level = useSelector((state: RootState) => state.postTest.level);
   const halfLevl = Math.round(level / 2);
-  // const centers = useSelector((state: RootState) => state.postTest.centers);
-  const centers = [
-    {
-      address: '용인시 기흥구 신갈로58번길 11 (기흥구 보건소 3층)',
-      centerid: 547,
-      name: '보건소A',
-      phonecall: '1997',
-      province: '경기도_용인시',
-    },
-    {
-      address: '용인시 기흥구 신갈로58번길 11 (기흥구 보건소 3층)',
-      centerid: 547,
-      name: '보건소B',
-      phonecall: '1997',
-      province: '경기도_용인시',
-    },
-  ];
+  const centers = useSelector((state: RootState) => state.postTest.centers);
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
     <ResultWrapper>
       <ResultForm>
         <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
-        {/* <Gage level={level} /> */}
-        <DiagnosisBody>{bodies[halfLevl - 1]}</DiagnosisBody>
-        {level > 5 && (
+        <Gage level={level} />
+        <DiagnosisBody>
+          {bodies[halfLevl - 1].split('\n').map((line) => {
+            return (
+              <span>
+                {line}
+                <br />
+              </span>
+            );
+          })}
+        </DiagnosisBody>
+        {level > 4 && (
           <CustomButton
             onClick={() => {
               setHospitalToggle(!hospitalToggle);

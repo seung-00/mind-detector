@@ -119,6 +119,7 @@ summary,
 time,
 mark,
 audio,
+progress,
 video {
   margin: 0;
   padding: 0;
@@ -163,4 +164,13 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+progress {
+  appearance: none;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+  outline: none;
 }
