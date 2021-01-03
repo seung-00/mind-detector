@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootState } from '../../modules';
+import { PostTestState } from '../../modules/post-test';
 import { respondTo } from '../../styles/mixin';
 import CustomButton from '../common/CustomButton';
 
@@ -128,65 +129,74 @@ const bodies = [
 ];
 
 function Result() {
+  const { loading, success, error }: PostTestState['postStatus'] = useSelector(
+    (state: RootState) => state.postTest.postStatus
+  );
   const level = useSelector((state: RootState) => state.postTest.level);
-  const halfLevl = Math.round(level / 2);
+  const halfLevel = Math.round(level / 2);
   const centers = useSelector((state: RootState) => state.postTest.centers);
   const [hospitalToggle, setHospitalToggle] = useState(false);
   return (
-    <ResultWrapper>
-      <ResultForm>
-        <DiagnosisTitle>{titles[halfLevl - 1]}</DiagnosisTitle>
-        <Gage level={level} />
-        <DiagnosisBody>
-          {bodies[halfLevl - 1].split('\n').map((line) => {
-            return (
-              <span>
-                {line}
-                <br />
-              </span>
-            );
-          })}
-        </DiagnosisBody>
-        {level > 4 && (
-          <CustomButton
-            onClick={() => {
-              setHospitalToggle(!hospitalToggle);
-            }}
-          >
-            {hospitalToggle ? (
-              <span>상담센터 정보 접기</span>
-            ) : (
-              <span>상담센터 정보 보기</span>
+    <>
+      {success && (
+        <ResultWrapper>
+          <ResultForm>
+            <DiagnosisTitle>{titles[halfLevel - 1]}</DiagnosisTitle>
+            <Gage level={level} />
+            {halfLevel && (
+              <DiagnosisBody>
+                {bodies[halfLevel - 1].split('\n').map((line) => {
+                  return (
+                    <span>
+                      {line}
+                      <br />
+                    </span>
+                  );
+                })}
+              </DiagnosisBody>
             )}
-          </CustomButton>
-        )}
-        {hospitalToggle && (
-          <>
-            <Hospital hospitalDatas={centers} />
-          </>
-        )}
-        <Border />
-        <BlueWrapper>
-          <BlueArea>
-            <BlueBox>
-              이번 달,
-              <br />
-              평균 우울지수는
-              <br />
-              <em>높음</em> 입니다.
-            </BlueBox>
-            <BlueBox>
-              오늘,
-              <br />
-              평균 우울지수는
-              <br />
-              <em>보통</em> 입니다.
-            </BlueBox>
-          </BlueArea>
-          <p>* 마인드 디텍터 사용자의 평균 우울지수입니다.</p>
-        </BlueWrapper>
-      </ResultForm>
-    </ResultWrapper>
+            {level > 4 && (
+              <CustomButton
+                onClick={() => {
+                  setHospitalToggle(!hospitalToggle);
+                }}
+              >
+                {hospitalToggle ? (
+                  <span>상담센터 정보 접기</span>
+                ) : (
+                  <span>상담센터 정보 보기</span>
+                )}
+              </CustomButton>
+            )}
+            {hospitalToggle && (
+              <>
+                <Hospital hospitalDatas={centers} />
+              </>
+            )}
+            <Border />
+            <BlueWrapper>
+              <BlueArea>
+                <BlueBox>
+                  이번 달,
+                  <br />
+                  평균 우울지수는
+                  <br />
+                  <em>높음</em> 입니다.
+                </BlueBox>
+                <BlueBox>
+                  오늘,
+                  <br />
+                  평균 우울지수는
+                  <br />
+                  <em>보통</em> 입니다.
+                </BlueBox>
+              </BlueArea>
+              <p>* 마인드 디텍터 사용자의 평균 우울지수입니다.</p>
+            </BlueWrapper>
+          </ResultForm>
+        </ResultWrapper>
+      )}
+    </>
   );
 }
 

@@ -5,9 +5,9 @@ import { respondTo } from '../../styles/mixin';
 const FooterArea = styled.footer`
   height: 10vh;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  margin-top: auto;
   ${respondTo.desktop`
     font-size: 1.2rem;
     `}

@@ -12,6 +12,7 @@ const FormWrapper = styled.div`
   justify-content: center;
   padding: 0rem 4rem;
   ${respondTo.desktop`
+    min-height: 80vh;
     padding: 0rem 6rem;
   `}
 `;
@@ -19,7 +20,7 @@ const FormWrapper = styled.div`
 const FormBox = styled.div`
   height: 50rem;
   ${respondTo.desktop`
-    height: 78.9rem;
+    height: 100%;
   `}
   flex: 1;
   background-color: white;

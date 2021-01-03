@@ -13,6 +13,7 @@ const TestPageWrapper = styled.div`
 `;
 
 const FormArea = styled.div`
+  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
