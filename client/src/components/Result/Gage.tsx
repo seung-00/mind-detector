@@ -73,9 +73,10 @@ interface GageProps {
 }
 
 function Gage({ level }: GageProps) {
+  const gageValue = level * 12.5;
   return (
     <GageWrapper>
-      <StyledProgress max="100" value="25" />
+      <StyledProgress max="100" value={gageValue} />
       <ProgressTextContainer>
         <ProgressTextItem>
           <div className="item-wrapper">

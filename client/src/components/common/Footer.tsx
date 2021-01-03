@@ -12,14 +12,14 @@ const FooterArea = styled.footer`
     font-size: 1.2rem;
     `}
   p {
-    margin: 0 0.5rem;
+    margin: 0 0.8rem;
   }
 `;
 
 function Footer() {
   return (
     <FooterArea>
-      <p>제4회 정부혁신제안 끝장개발대회 최우수 수상작,</p>
+      <p>제4회 정부혁신제안 끝장개발대회 수상작,</p>
       <a href="https://github.com/sarah5398/mind-detector">GitHub</a>
     </FooterArea>
   );

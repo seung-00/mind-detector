@@ -8,6 +8,7 @@ input::-webkit-inner-spin-button {
 
 html {
   -webkit-text-size-adjust: 100%;
+  word-break: keep-all;
 }
 
 /* Mobile First */

@@ -32,7 +32,7 @@ const ContentWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 5rem 5.5rem;
+  padding: 5rem 4rem;
   ${respondTo.desktop`
     padding: 9.6rem 7.4rem;
   `}
@@ -41,10 +41,13 @@ const ContentWrapper = styled.div`
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: bold;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     line-height: 2.9rem;
     letter-spacing: -0.05rem;
     margin-right: 4rem;
+    ${respondTo.desktop`
+      font-size: 2.2rem;
+  `}
   }
 `;
 
@@ -58,9 +61,14 @@ const Description = styled.p`
   font-style: normal;
   height: 25rem;
   font-weight: 600;
-  line-height: 2.9rem;
-  font-size: 1.8rem;
+  line-height: 3.2rem;
+  font-size: 2rem;
   letter-spacing: -0.05rem;
+  ${respondTo.desktop`
+    line-height: 2.9rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.05rem;
+  `}
 `;
 
 const ButtonWrapper = styled.div`
