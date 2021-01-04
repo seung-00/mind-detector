@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 const StyledButton = styled.button`
   display: inline-block;
   background: transparent;
-  padding: 1.2rem 1.9rem;
+  padding: 1.5rem 1.9rem;
   border-radius: 7.6rem;
   text-align: center;
   font-style: normal;

@@ -91,14 +91,6 @@ const RightContent = styled.div`
 `;
 
 const MainButton = styled(CustomButton)`
-  /* display: inline-block;
-  height: 3.2rem;
-  background: white;
-  ${respondTo.desktop`
-    p + & {
-    margin-top: 5rem;
-  }
-  `}; */
   margin-top: 2.2rem;
   p + & {
     margin-top: 7vh;

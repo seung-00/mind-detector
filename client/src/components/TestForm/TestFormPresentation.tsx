@@ -161,7 +161,7 @@ function TestBlock({
           <em>Q{page}</em>
           <ContentArea>
             <Description>{question}</Description>
-            <StyledAnswerArea onChange={handleText} value={answer} autoFocus />
+            <StyledAnswerArea onChange={handleText} value={answer} />
             <ButtonArea>
               <ButtonWrapper>
                 <TestButton onClick={handlePrevious}>
