@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { respondTo } from '../../styles/mixin';
 
 const TitleWrapper = styled.div`
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: -0.15rem;
 
   // Small
