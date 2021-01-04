@@ -14,9 +14,9 @@ const ManualWrapper = styled.p`
   margin-top: 1.5vh;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 21px;
-  letter-spacing: -0.5px;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+  letter-spacing: -0.05rem;
   animation: ${boxFade} 1s linear alternate;
 `;
 

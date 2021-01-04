@@ -3,13 +3,16 @@ import styled from 'styled-components';
 import LeftCircle from '../../styles/img/left_circle.png';
 import CenterCircle from '../../styles/img/center_circle.png';
 import RightCircle from '../../styles/img/right_circle.png';
+import { respondTo } from '../../styles/mixin';
 
 const CircleWrapper = styled.div`
-  position: absolute;
-  width: 100%;
+  width: 100vw;
   display: flex;
+  justify-content: space-between;
   margin-top: auto;
-  top: 550px;
+  img {
+    max-width: 100%;
+  }
 `;
 const LeftCircleWrapper = styled.div`
   margin-right: auto;
@@ -17,6 +20,9 @@ const LeftCircleWrapper = styled.div`
 const CenterCircleWrapper = styled.div``;
 const RightCircleWrapper = styled.div`
   margin-left: auto;
+  display: none;
+  ${respondTo.tablet`
+    display: block;`}
 `;
 
 function BottomBlock() {

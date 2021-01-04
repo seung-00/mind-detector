@@ -42,9 +42,9 @@ function study(
         },
       };
     case actions.SAVE_ANSWER:
-      console.log('test');
       const pageKey = action.payload.pageKey;
       const answer = action.payload.answer;
+      console.log(`pageKey = ${pageKey}, answer = ${answer}`);
       return {
         ...state,
         answers: {

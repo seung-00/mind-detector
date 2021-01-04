@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as selectionConstant from '../../constants/selection';
+import { respondTo } from '../../styles/mixin';
 
 const PrivacyArea = styled.div`
-  width: 562px;
-  height: 255px;
+  flex: 1;
+  min-width: 100%;
+  margin: 3vh 0vh 3vh 0vh;
+  padding: 0rem 4rem;
+  ${respondTo.desktop`
+    margin: 0vh;
+    padding: 0rem 25%;
+  `}
+`;
+
+const PrivacyForm = styled.div`
+  flex: 1;
+  padding: 3vh 0vh 3vh 0vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: white;
   color: #444444;
   font-weight: 600;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
+  box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
 `;
 
 const PrivacyItem = styled.div`
   display: flex;
   align-items: center;
   margin: 0 15% 0 15%;
-  > label {
-    font-size: 16px;
-    width: 80px;
+  label {
+    font-size: 1.5rem;
+    width: 8rem;
   }
   & + & {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 `;
 
@@ -37,25 +49,24 @@ const InputArea = styled.form`
   select {
     font-family: inherit;
     width: 80%;
-    padding: 8px;
-    font-size: 15px;
+    padding: 0.8rem;
+    font-size: 1.5rem;
     background: #ffffff;
     border: 1px solid ${(props) => props.theme.gray};
-    box-sizing: border-box;
   }
   input[type='radio']:checked {
-    cursor: pointer;
     background-color: ${(props) => props.theme.main};
     border: solid 1px rgba(255, 255, 255, 0.3);
   }
   input[type='radio'] {
+    cursor: pointer;
     appearance: none;
     border-radius: 100%;
-    margin-right: 10px;
-    width: 12px;
-    height: 12px;
+    margin-right: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     background: white;
-    box-shadow: inset 0px 4px 3px rgba(0, 0, 0, 0.17);
+    box-shadow: inset 0rem 0.4rem 0.3rem rgba(0, 0, 0, 0.17);
   }
   input + label {
     margin-right: auto;
@@ -104,7 +115,7 @@ function PrivacyBox({ handleForm }: PrivacyProps) {
 
   return (
     <PrivacyArea>
-      <div className="content-area">
+      <PrivacyForm>
         <PrivacyItem>
           <label>나이</label>
           <InputArea className="input-area">
@@ -159,7 +170,7 @@ function PrivacyBox({ handleForm }: PrivacyProps) {
             </select>
           </InputArea>
         </PrivacyItem>
-      </div>
+      </PrivacyForm>
     </PrivacyArea>
   );
 }

@@ -11,7 +11,7 @@ function TestFormContainer() {
   const { loading, success, error }: PostTestState['postStatus'] = useSelector(
     (state: RootState) => state.postTest.postStatus
   );
-  const testForm = useSelector((state: RootState) => state.test);
+  // const testForm = useSelector((state: RootState) => state.test);
   const history = useHistory();
 
   const dispatch = useDispatch();
@@ -45,32 +45,24 @@ function TestFormContainer() {
     }
   };
 
-  const handleNext = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleNext = () => {
     if (answer.length < 5) {
       alert('답변을 5자 이상으로 작성해주세요.');
     } else {
       const pageKey = 'answer' + String(page);
       const testData = { pageKey: pageKey, answer: answer };
-      console.log(testData);
       dispatch(saveAnswer(testData));
       setPage(page + 1);
     }
   };
 
+  const testForm = useSelector((state: RootState) => state.test);
+
   const handleTest = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (answer.length < 5) {
-      alert('답변을 5자 이상으로 작성해주세요.');
-    } else {
-      const pageKey = 'answer' + String(page);
-      const testData = { pageKey: pageKey, answer: answer };
-      dispatch(saveAnswer(testData));
-      history.push('./test'); // Rerendering
-      const data = dispatch(postTest(testForm));
-      if (success) {
-        console.log(data);
-        history.push('./result');
-      }
-    }
+    const reuestData = { ...testForm };
+    reuestData['answers']['answer10'] = answer;
+    dispatch(postTest(reuestData)); // 대답 전송
+    history.push('./result');
   };
 
   return (

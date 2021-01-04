@@ -1,7 +1,7 @@
 import * as actions from './actions';
 import { postTestApi } from './api';
 
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 function* postTestFuncSaga(action: ReturnType<typeof actions.postTest>) {
   try {
@@ -14,5 +14,5 @@ function* postTestFuncSaga(action: ReturnType<typeof actions.postTest>) {
   }
 }
 export function* postTestSaga() {
-  yield takeEvery(actions.POST_TEST, postTestFuncSaga);
+  yield takeLatest(actions.POST_TEST, postTestFuncSaga);
 }
