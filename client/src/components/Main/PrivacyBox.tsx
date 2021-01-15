@@ -22,7 +22,7 @@ const PrivacyForm = styled.div`
   justify-content: center;
   background: white;
   color: #444444;
-  font-weight: 600;
+  font-weight: 500;
   box-shadow: 0rem 0.4rem 1.4rem rgba(0, 0, 0, 0.1);
   border-radius: 1.6rem;
 `;

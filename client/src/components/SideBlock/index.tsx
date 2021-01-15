@@ -23,9 +23,8 @@ const SmallTitleBox = styled(TitleBox)`
 
 const ManualTitle = styled.p`
   margin-top: 4vh;
-  font-family: 'Noto Serif KR';
   font-style: normal;
-  font-weight: 900;
+  font-weight: bold;
   font-size: 1.5rem;
   line-height: 2.2rem;
   letter-spacing: -0.05rem;
@@ -36,7 +35,7 @@ const ManualTitle = styled.p`
 `;
 
 const ManualArea = styled.div`
-  flex: 0 0 15.6rem;
+  flex: 0 0 17.6rem;
   display: flex;
   flex-direction: column;
 `;
