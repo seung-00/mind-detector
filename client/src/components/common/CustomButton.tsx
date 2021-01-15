@@ -35,13 +35,25 @@ const StyledButton = styled.button<StyledButtonProps>`
 `;
 
 interface CustomButtonProps {
-  hoverShadow: boolean;
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  children: JSX.Element | JSX.Element[] | string;
+  hoverShadow?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children?: JSX.Element | JSX.Element[] | string;
 }
 
-function CustomButton({ hoverShadow }: CustomButtonProps) {
-  return <StyledButton hoverShadow={hoverShadow} />;
+function CustomButton({
+  hoverShadow,
+  onClick,
+  children,
+  ...rest // expended styling
+}: CustomButtonProps) {
+  return (
+    <StyledButton
+      hoverShadow={hoverShadow}
+      onClick={onClick}
+      children={children}
+      {...rest}
+    />
+  );
 }
 
 CustomButton.defaultProps = {

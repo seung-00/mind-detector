@@ -10,6 +10,7 @@ import { respondTo } from '../styles/mixin';
 const TestPageWrapper = styled.div`
   height: 100vh;
   display: flex;
+  position: relative;
 `;
 
 const FormArea = styled.div`
@@ -21,6 +22,8 @@ const FormArea = styled.div`
 `;
 
 const TestTitle = styled(TitleBox)`
+  position: absolute;
+  bottom: 15vh;
   display: inline;
   ${respondTo.desktop`
     display: none;

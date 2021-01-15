@@ -17,7 +17,7 @@ const ResultWrapper = styled.div`
   align-items: center;
   padding: 0rem 5rem;
   ${respondTo.desktop`
-    padding: 0rem 14rem
+    padding: 0rem 10rem
   `}
 `;
 
@@ -75,7 +75,6 @@ const BlueWrapper = styled.div`
   flex-direction: column;
   p {
     margin-top: 2rem;
-    margin-left: auto;
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 2.9rem;

@@ -33,9 +33,12 @@ interface TitleBoxProps {
   isSmall: boolean;
 }
 
-function TitleBox({ isSmall }: TitleBoxProps) {
+function TitleBox({
+  isSmall,
+  ...rest // expected styling
+}: TitleBoxProps) {
   return (
-    <TitleWrapper isSmall={isSmall}>
+    <TitleWrapper isSmall={isSmall} {...rest}>
       마인드
       <br />
       디텍터
