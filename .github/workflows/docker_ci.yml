@@ -1,11 +1,5 @@
 name: mind-detector-front CI
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   docker_build_push:
@@ -22,6 +16,3 @@ jobs:
         run: |
           cd client
           docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s) .
-
-      - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front
