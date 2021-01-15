@@ -1,7 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const StyledButton = styled.button`
+interface StyledButtonProps {
+  hoverShadow: any;
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   display: inline-block;
   background: transparent;
   padding: 1.5rem 1.9rem;
@@ -30,8 +34,20 @@ const StyledButton = styled.button`
         `}
 `;
 
-function CustomButton({ hoverShadow, ...rest }: any) {
-  return <StyledButton hoverShadow={hoverShadow} {...rest} />;
+interface CustomButtonProps {
+  hoverShadow: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children: JSX.Element | JSX.Element[] | string;
 }
+
+function CustomButton({ hoverShadow }: CustomButtonProps) {
+  return <StyledButton hoverShadow={hoverShadow} />;
+}
+
+CustomButton.defaultProps = {
+  hoverShadow: false,
+  onClick: undefined,
+  children: undefined,
+};
 
 export default CustomButton;
