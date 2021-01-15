@@ -39,7 +39,6 @@ const StyledProgress = styled.progress`
 const ProgressTextContainer = styled.ul`
   margin-top: 2rem;
   display: flex;
-  justify-content: flex-end;
   width: 88%;
   .item-wrapper {
     display: flex;
