@@ -126,6 +126,7 @@ const StyledAnswerArea = styled(TextareaAutosize)`
   background-size: 100% 3rem; // 2rem 마다
 `;
 
+//note
 interface TestProp {
   page: number;
   question: string;
