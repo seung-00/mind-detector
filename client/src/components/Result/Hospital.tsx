@@ -43,7 +43,6 @@ const HospitalInfoWrapper = styled.li`
 `;
 
 const VisitButton = styled(CustomButton)`
-  height: 3.5rem;
   color: white;
   background-color: ${(props) => props.theme.main};
 `;

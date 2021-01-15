@@ -36,17 +36,17 @@ const LeftConetent = styled.em`
   letter-spacing: -0.05rem;
   padding: 5vh 5vh;
   line-height: 19px;
-  font-weight: 700;
+  font-weight: bold;
   ${respondTo.desktop`
     padding: 0rem 7rem 0rem 0rem;
     line-height: 2.9rem;
-    font-weight: 600;
+    font-weight: bold;
   `}
 `;
 
 const Description = styled.p`
   width: auto;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.5rem;
   line-height: 2.9rem;
   letter-spacing: -0.05rem;
@@ -91,14 +91,6 @@ const RightContent = styled.div`
 `;
 
 const MainButton = styled(CustomButton)`
-  /* display: inline-block;
-  height: 3.2rem;
-  background: white;
-  ${respondTo.desktop`
-    p + & {
-    margin-top: 5rem;
-  }
-  `}; */
   margin-top: 2.2rem;
   p + & {
     margin-top: 7vh;

@@ -40,7 +40,6 @@ const ContentWrapper = styled.div`
   em {
     font-family: 'Noto Sans KR';
     font-style: normal;
-    font-weight: bold;
     font-size: 2.5rem;
     line-height: 2.9rem;
     letter-spacing: -0.05rem;
@@ -60,7 +59,7 @@ const ContentArea = styled.div`
 const Description = styled.p`
   font-style: normal;
   height: 25rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 3.2rem;
   font-size: 2rem;
   letter-spacing: -0.05rem;
@@ -127,6 +126,7 @@ const StyledAnswerArea = styled(TextareaAutosize)`
   background-size: 100% 3rem; // 2rem 마다
 `;
 
+//note
 interface TestProp {
   page: number;
   question: string;
@@ -161,7 +161,7 @@ function TestBlock({
           <em>Q{page}</em>
           <ContentArea>
             <Description>{question}</Description>
-            <StyledAnswerArea onChange={handleText} value={answer} autoFocus />
+            <StyledAnswerArea onChange={handleText} value={answer} />
             <ButtonArea>
               <ButtonWrapper>
                 <TestButton onClick={handlePrevious}>
