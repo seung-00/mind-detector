@@ -2,7 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { respondTo } from '../../styles/mixin';
 
-const TitleWrapper = styled.div`
+interface TitleWrapperProps {
+  isSmall: boolean;
+}
+
+const TitleWrapper = styled.div<TitleWrapperProps>`
   font-weight: bold;
   letter-spacing: -0.15rem;
 
@@ -25,14 +29,22 @@ const TitleWrapper = styled.div`
   color: ${(props) => props.theme.main};
 `;
 
-function TitleBox({ isSmall, ...rest }: any) {
+interface TitleBoxProps {
+  isSmall: boolean;
+}
+
+function TitleBox({ isSmall }: TitleBoxProps) {
   return (
-    <TitleWrapper isSmall={isSmall} {...rest}>
+    <TitleWrapper isSmall={isSmall}>
       마인드
       <br />
       디텍터
     </TitleWrapper>
   );
 }
+
+TitleBox.defaultProps = {
+  isSmall: false,
+};
 
 export default TitleBox;
