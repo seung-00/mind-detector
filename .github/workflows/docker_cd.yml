@@ -19,7 +19,7 @@ jobs:
       - name: Build the Docker image
         run: |
           cd client
-          docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:${GITHUB_REF/refs\/tags\//} .
+          docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s) .
 
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front:${GITHUB_REF/refs\/tags\//}
+        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s)
