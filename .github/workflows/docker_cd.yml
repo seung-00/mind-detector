@@ -22,4 +22,4 @@ jobs:
           docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s) .
 
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s)
+        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front
