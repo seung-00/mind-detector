@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Extract Git Tag
+        run: echo ::set-env name=GIT_TAG::${GITHUB_REF/refs\/tags\//}
+        env:
+          IMAGE_TAG: ${{ env.GIT_TAG }}
+
       - name: docker login
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
@@ -18,7 +24,7 @@ jobs:
       - name: Build the Docker image
         run: |
           cd client
-          docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$(date +%s) .
+          docker build --tag ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$IMAGE_TAG .
 
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front
+        run: docker push ${{secrets.DOCKER_USERNAME}}/mind-detector-front:$IMAGE_TAG
