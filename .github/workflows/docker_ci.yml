@@ -1,5 +1,8 @@
 name: mind-detector-front CI
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'main'
 
 jobs:
   docker_build_push:
