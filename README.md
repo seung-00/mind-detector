@@ -1,6 +1,6 @@
 # mind-detector
 
-[![MIT License](https://camo.githubusercontent.com/acf15ade1a946af5d2647e4b66cbf7c1c5eaca129a5a42838e21dab9293748ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d79656c6c6f77677265656e2e737667)](https://github.com/gsbelarus/gdmn/blob/373d14ebe8573c05599c6f178bd2bde5d6e9db62/LICENSE)[![DockerHub](https://img.shields.io/badge/DockerHub-link-blue)](https://hub.docker.com/repository/docker/osy0056/mind-detect)[![notion](https://img.shields.io/badge/Notion-link-lightgrey)](https://www.notion.so/00data/c8524cefac7f4d13ab4d40d43dcde7e5?v=7599432407d54dd48f1f75754dd74146)
+[![MIT License](https://camo.githubusercontent.com/acf15ade1a946af5d2647e4b66cbf7c1c5eaca129a5a42838e21dab9293748ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d79656c6c6f77677265656e2e737667)](https://github.com/gsbelarus/gdmn/blob/373d14ebe8573c05599c6f178bd2bde5d6e9db62/LICENSE) [![DockerHub](https://img.shields.io/badge/DockerHub-link-blue)](https://hub.docker.com/repository/docker/osy0056/mind-detect) [![notion](https://img.shields.io/badge/Notion-link-lightgrey)](https://www.notion.so/00data/c8524cefac7f4d13ab4d40d43dcde7e5?v=7599432407d54dd48f1f75754dd74146)
 
 [![demo page](https://img.shields.io/badge/demo%20page-link-green)](https://api.minddetector.me)
 
