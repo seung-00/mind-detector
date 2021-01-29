@@ -25,7 +25,7 @@ const ManualTitle = styled.p`
   margin-top: 4vh;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 2.2rem;
   letter-spacing: -0.05rem;
   /* color: gray; */

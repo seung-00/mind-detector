@@ -1,6 +1,5 @@
 import * as actions from './actions';
 
-// form 객체 타입 준비
 export interface PrivacyForm {
   age: string;
   sex: string;
@@ -35,7 +34,6 @@ export interface TestForm {
   };
 }
 
-// 모든 액션 객체들에 대한 타입 준비
 export type FormAction =
   | ReturnType<typeof actions.initializeForm>
   | ReturnType<typeof actions.savePrivacy>

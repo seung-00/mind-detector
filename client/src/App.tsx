@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import enlargeOff from './util/enlargeOff';
 import './App.css';
 import MainPage from './pages/MainPage';
 import ResultPage from './pages/ResultPage';
@@ -8,6 +9,7 @@ import TestPage from './pages/TestPage';
 import theme from './styles/theme';
 
 function App() {
+  enlargeOff();
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
