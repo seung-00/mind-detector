@@ -8,7 +8,7 @@ export const FETCH_LEVEL = 'post-test/FETCH_LEVEL' as const;
 export const FETCH_CENTERS = 'post-test/FETCH_CENTERS' as const;
 
 export const postTest = (TestForm: types.TestForm) => {
-  console.log('서버 요청 중..');
+  // console.log('서버 요청 중..');
   return {
     type: POST_TEST,
     payload: TestForm,
@@ -23,24 +23,23 @@ export const postTestSuccess = () => {
 };
 
 export const postTestError = (error: AxiosError) => {
-  console.log('post 실패');
+  // console.log('post 실패');
   return {
     type: POST_TEST_ERROR,
     error: error,
   };
 };
 
-export const fetchLevel = (level: any) => {
-  console.log('level fetch 완료!');
+export const fetchLevel = (level: number) => {
+  // console.log('level fetch 완료!');
   return {
     type: FETCH_LEVEL,
     payload: level,
   };
 };
 
-export const fetchCenters = (centers: any) => {
-  console.log('centers fetch 완료!');
-  console.log(centers);
+export const fetchCenters = (centers: string[]) => {
+  // console.log('centers fetch 완료!');
   return {
     type: FETCH_CENTERS,
     payload: centers,

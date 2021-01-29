@@ -1,7 +1,7 @@
 import postTest, { postTestSaga } from './post-test';
+import test from './test';
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
-import test from './test';
 
 const rootReducer = combineReducers({ test, postTest });
 

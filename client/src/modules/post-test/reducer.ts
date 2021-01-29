@@ -1,17 +1,25 @@
 import * as actions from './actions';
 import * as types from './types';
 
-const initialState: any = {
+interface StateTypes extends types.PostTestState {
+  level: number;
+  centers: any[];
+}
+
+const initialState = {
   postStatus: {
     loading: false,
     success: false,
     error: null,
   },
   level: 0,
-  centers: [],
+  centers: [''],
 };
 
-const postTest = (state: any = initialState, action: types.PostTestAction) => {
+const postTest = (
+  state: StateTypes = initialState,
+  action: types.PostTestAction
+) => {
   switch (action.type) {
     case actions.POST_TEST:
       return {
@@ -40,7 +48,6 @@ const postTest = (state: any = initialState, action: types.PostTestAction) => {
         },
       };
     case actions.FETCH_LEVEL:
-      console.log(action.payload);
       return {
         ...state,
         level: action.payload,
