@@ -1,8 +1,7 @@
 import * as actions from './actions';
 import * as types from './types';
 
-// 초기 상태 선언
-const initialForm: types.TestForm = {
+const initialForm = {
   privacy: {
     age: '',
     sex: '',
@@ -24,11 +23,10 @@ const initialForm: types.TestForm = {
   },
 };
 
-// 리듀서 작성
-function study(
+const study = (
   state: types.TestForm = initialForm,
   action: types.FormAction
-): types.TestForm {
+) => {
   switch (action.type) {
     case actions.SAVE_PRIVACY:
       return {
@@ -44,7 +42,6 @@ function study(
     case actions.SAVE_ANSWER:
       const pageKey = action.payload.pageKey;
       const answer = action.payload.answer;
-      console.log(`pageKey = ${pageKey}, answer = ${answer}`);
       return {
         ...state,
         answers: {
@@ -57,6 +54,6 @@ function study(
     default:
       return state;
   }
-}
+};
 
 export default study;
