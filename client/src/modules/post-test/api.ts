@@ -2,8 +2,6 @@ import * as types from './types';
 import axios from 'axios';
 
 export async function postTestApi(form: types.TestForm) {
-  console.log(`post 되는 데이터`);
-  console.log(form);
   const privacyObj = form.privacy;
   const answersObj = form.answers;
   const data = {
@@ -27,7 +25,5 @@ export async function postTestApi(form: types.TestForm) {
     head
   );
 
-  console.log('reponse 데이터 ->');
-  console.log(response);
   return response.data;
 }
