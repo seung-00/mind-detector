@@ -42,11 +42,8 @@ docker pull osy0056/mind-detector-front:{tag}
 3️⃣ 맞춤 상담센터 정보제공
 
 4️⃣ 사용자 데이터 축적을 통한 대국민 우울 지수 현황 파악
-
+<br />
 <img src ="https://user-images.githubusercontent.com/46865281/104859440-bf8b9980-5968-11eb-84c9-09c3c2ffe5bf.png" width="650px" height="420px">
-
-
-
 <img src ="https://user-images.githubusercontent.com/46865281/104859536-72f48e00-5969-11eb-87a3-8a9dc6045dc0.png" width="500px" height="420px">
 
 <br />
