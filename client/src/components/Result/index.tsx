@@ -151,9 +151,9 @@ function Result() {
                 }}
               >
                 {hospitalToggle ? (
-                  <span>상담센터 정보 접기</span>
+                  <span>심리상담센터 접기</span>
                 ) : (
-                  <span>상담센터 정보 보기</span>
+                  <span>심리상담센터 보기</span>
                 )}
               </CustomButton>
             )}
