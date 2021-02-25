@@ -47,7 +47,6 @@ const InputArea = styled.form`
     cursor: pointer;
   }
   select {
-    font-family: inherit;
     width: 80%;
     padding: 0.8rem;
     font-size: 1.5rem;
