@@ -1,4 +1,4 @@
-name: mind-detector-front CD
+name: mind-detector-front-front CD
 on:
   push:
     branches:
@@ -17,6 +17,6 @@ jobs:
         run: |
           VERSION=$(date +%s)
           cd client
-          docker build --tag ${DOCKER_USERNAME}/mind-detector:${VERSION} .
+          docker build --tag ${DOCKER_USERNAME}/mind-detector-front:${VERSION} .
           docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-          docker push ${DOCKER_USERNAME}/mind-detector:${VERSION}
+          docker push ${DOCKER_USERNAME}/mind-detector-front:${VERSION}
