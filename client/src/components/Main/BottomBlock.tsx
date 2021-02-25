@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import LeftCircle from '../../styles/img/left_circle.png';
-import CenterCircle from '../../styles/img/center_circle.png';
-import RightCircle from '../../styles/img/right_circle.png';
+import LeftCircle from '../../assets/img/left_circle.png';
+import CenterCircle from '../../assets/img/center_circle.png';
+import RightCircle from '../../assets/img/right_circle.png';
 import { respondTo } from '../../styles/mixin';
 
 const CircleWrapper = styled.div`

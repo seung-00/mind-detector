@@ -38,7 +38,6 @@ const ContentWrapper = styled.div`
   `}
   color: #333333;
   em {
-    font-family: 'Noto Sans KR';
     font-style: normal;
     font-size: 2.5rem;
     line-height: 2.9rem;
