@@ -1,44 +1,43 @@
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: 100;
-  src: url('./assets/fonts/NotoSansKR-Light.woff2') format('woff2'),
-    url('./assets/fonts/NotoSansKR-Light.woff') format('woff'),
-    url('./assets/fonts/NotoSansKR-Light.otf') format('truetype');
+  src: url('./assets/fonts/NotoSerifKR-Light.woff2') format('woff2'),
+    url('./assets/fonts/NotoSerifKR-Light.woff') format('woff'),
+    url('./assets/fonts/NotoSerifKR-Light.otf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: normal;
-  src: url('./assets/fonts/NotoSansKR-Regular.woff2') format('woff2'),
-    url('./assets/fonts/NotoSansKR-Regular.woff') format('woff'),
-    url('./assets/fonts/NotoSansKR-Regular.otf') format('truetype');
+  src: url('./assets/fonts/NotoSerifKR-Regular.woff2') format('woff2'),
+    url('./assets/fonts/NotoSerifKR-Regular.woff') format('woff'),
+    url('./assets/fonts/NotoSerifKR-Regular.otf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: 500;
-  src: url('./assets/fonts/NotoSansKR-Medium.woff2') format('woff2'),
-    url('./assets/fonts/NotoSansKR-Medium.woff') format('woff'),
-    url('./assets/fonts/NotoSansKR-Medium.otf') format('truetype');
+  src: url('./assets/fonts/NotoSerifKR-Medium.woff2') format('woff2'),
+    url('./assets/fonts/NotoSerifKR-Medium.woff') format('woff'),
+    url('./assets/fonts/NotoSerifKR-Medium.otf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: bold;
-  src: url('./assets/fonts/NotoSansKR-Bold.woff2') format('woff2'),
-    url('./assets/fonts/NotoSansKR-Bold.woff') format('woff'),
-    url('./assets/fonts/NotoSansKR-Bold.otf') format('truetype');
+  src: url('./assets/fonts/NotoSerifKR-Bold.woff2') format('woff2'),
+    url('./assets/fonts/NotoSerifKR-Bold.woff') format('woff'),
+    url('./assets/fonts/NotoSerifKR-Bold.otf') format('truetype');
 }
-
 body {
   margin: 0;
-  font-family: 'Noto Sans KR' !important;
-  /* -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  font-family: 'Noto Serif KR' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: #f0f0f0;
   color: #444444;
 }
