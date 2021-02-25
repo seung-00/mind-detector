@@ -6,7 +6,7 @@
 
 <br />
 
-## Link
+## 🧷 Link
 
 * [demo](101.101.217.17)
 * [Notion](https://www.notion.so/00data/c8524cefac7f4d13ab4d40d43dcde7e5?v=7599432407d54dd48f1f75754dd74146)
@@ -14,13 +14,15 @@
 
 <br />
 
-## View
+## 👀 View
 
 <img src ="https://user-images.githubusercontent.com/46865281/104859440-bf8b9980-5968-11eb-84c9-09c3c2ffe5bf.png" width="650px" height="420px">
 
 <img src ="https://user-images.githubusercontent.com/46865281/104859536-72f48e00-5969-11eb-87a3-8a9dc6045dc0.png" width="500px" height="420px">
 
-## Usage
+<br >
+
+## 🎒 Usage
 
 
 ```bash
@@ -39,7 +41,7 @@ docker pull osy0056/mind-detector-front:{tag}
 
 <br />
 
-## Feature
+## 🚀 Feature
 
 1️⃣ 사용자의 이야기를 토대로 우울감 자가 진단
 
@@ -50,7 +52,7 @@ docker pull osy0056/mind-detector-front:{tag}
 4️⃣ 사용자 데이터 축적을 통한 대국민 우울 지수 현황 파악
 <br />
 
-## Stack
+## 🛠️ Stack
 
 - typescript
 - React, Redux, Redux-Saga, react-textarea-autosize
