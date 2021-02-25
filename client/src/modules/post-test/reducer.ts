@@ -1,7 +1,7 @@
 import * as actions from './actions';
 import * as types from './types';
 
-interface StateTypes extends types.PostTestState {
+export interface StateTypes extends types.PostTestState {
   level: number;
   centers: any[];
 }
