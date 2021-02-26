@@ -8,7 +8,7 @@
 
 ## 🧷 Link
 
-* [demo](101.101.217.17)
+* [demo](http://101.101.217.17)
 * [Notion](https://www.notion.so/00data/c8524cefac7f4d13ab4d40d43dcde7e5?v=7599432407d54dd48f1f75754dd74146)
 * [Frontend Docker Hub](https://hub.docker.com/repository/docker/osy0056/mind-detect)
 
